@@ -15,13 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as whisparr from "@pulumi/whisparr";
  *
- * const example = whisparr.Languages.getLanguages({});
+ * const example = whisparr.Profiles.getLanguages({});
  * ```
  */
 export function getLanguages(opts?: pulumi.InvokeOptions): Promise<GetLanguagesResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("whisparr:Languages/getLanguages:getLanguages", {
+    return pulumi.runtime.invoke("whisparr:Profiles/getLanguages:getLanguages", {
     }, opts);
 }
 
@@ -36,5 +36,5 @@ export interface GetLanguagesResult {
     /**
      * Language list.
      */
-    readonly languages: outputs.Languages.GetLanguagesLanguage[];
+    readonly languages: outputs.Profiles.GetLanguagesLanguage[];
 }

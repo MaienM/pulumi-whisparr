@@ -39,7 +39,6 @@ const (
 	modDownloadClients = "DownloadClient"
 	modImportLists     = "ImportLists"
 	modIndexers        = "Indexers"
-	modLanguages       = "Languages"
 	modMediaManagement = "MediaManagement"
 	modMetadata        = "Metadata"
 	modMovies          = "Movies"
@@ -241,9 +240,6 @@ func Provider() tfbridge.ProviderInfo {
 			"whisparr_restriction":    {Tok: makeDataSource(modIndexers, "whisparr_restriction")},
 			"whisparr_restrictions":   {Tok: makeDataSource(modIndexers, "whisparr_restrictions")},
 
-			"whisparr_language":  {Tok: makeDataSource(modLanguages, "whisparr_language")},
-			"whisparr_languages": {Tok: makeDataSource(modLanguages, "whisparr_languages")},
-
 			"whisparr_media_management": {Tok: makeDataSource(modMediaManagement, "whisparr_media_management")},
 			"whisparr_naming":           {Tok: makeDataSource(modMediaManagement, "whisparr_naming")},
 			"whisparr_root_folder":      {Tok: makeDataSource(modMediaManagement, "whisparr_root_folder")},
@@ -272,6 +268,8 @@ func Provider() tfbridge.ProviderInfo {
 			"whisparr_custom_formats":                           {Tok: makeDataSource(modProfiles, "whisparr_custom_formats")},
 			"whisparr_delay_profile":                            {Tok: makeDataSource(modProfiles, "whisparr_delay_profile")},
 			"whisparr_delay_profiles":                           {Tok: makeDataSource(modProfiles, "whisparr_delay_profiles")},
+			"whisparr_language":                                 {Tok: makeDataSource(modProfiles, "whisparr_language")},
+			"whisparr_languages":                                {Tok: makeDataSource(modProfiles, "whisparr_languages")},
 			"whisparr_quality":                                  {Tok: makeDataSource(modProfiles, "whisparr_quality")},
 			"whisparr_quality_definition":                       {Tok: makeDataSource(modProfiles, "whisparr_quality_definition")},
 			"whisparr_quality_definitions":                      {Tok: makeDataSource(modProfiles, "whisparr_quality_definitions")},

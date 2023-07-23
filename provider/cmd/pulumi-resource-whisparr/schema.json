@@ -944,33 +944,6 @@
                 }
             }
         },
-        "whisparr:Languages/getLanguagesLanguage:getLanguagesLanguage": {
-            "properties": {
-                "id": {
-                    "type": "integer",
-                    "description": "Language ID.\n"
-                },
-                "name": {
-                    "type": "string",
-                    "description": "Language.\n"
-                },
-                "nameLower": {
-                    "type": "string",
-                    "description": "Language in lowercase.\n"
-                }
-            },
-            "type": "object",
-            "required": [
-                "id",
-                "name",
-                "nameLower"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": []
-                }
-            }
-        },
         "whisparr:MediaManagement/RootFolderUnmappedFolder:RootFolderUnmappedFolder": {
             "properties": {
                 "name": {
@@ -2099,6 +2072,33 @@
                 "tags",
                 "torrentDelay",
                 "usenetDelay"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "whisparr:Profiles/getLanguagesLanguage:getLanguagesLanguage": {
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "description": "Language ID.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Language.\n"
+                },
+                "nameLower": {
+                    "type": "string",
+                    "description": "Language in lowercase.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "name",
+                "nameLower"
             ],
             "language": {
                 "nodejs": {
@@ -23916,69 +23916,6 @@
                 ]
             }
         },
-        "whisparr:Languages/getLanguage:getLanguage": {
-            "description": "\u003c!-- subcategory:Profiles --\u003eSingle available Language.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as whisparr from \"@pulumi/whisparr\";\n\nconst example = whisparr.Languages.getLanguage({\n    name: \"English\",\n});\n```\n```python\nimport pulumi\nimport pulumi_whisparr as whisparr\n\nexample = whisparr.Languages.get_language(name=\"English\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Whisparr = Pulumi.Whisparr;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Whisparr.Languages.GetLanguage.Invoke(new()\n    {\n        Name = \"English\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/MaienM/pulumi-whisparr/sdk/go/whisparr/Languages\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := Languages.GetLanguage(ctx, \u0026languages.GetLanguageArgs{\n\t\t\tName: \"English\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.whisparr.Languages.LanguagesFunctions;\nimport com.pulumi.whisparr.Languages.inputs.GetLanguageArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = LanguagesFunctions.getLanguage(GetLanguageArgs.builder()\n            .name(\"English\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: whisparr:Languages:getLanguage\n      Arguments:\n        name: English\n```\n{{% /example %}}\n{{% /examples %}}",
-            "inputs": {
-                "description": "A collection of arguments for invoking getLanguage.\n",
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "description": "Language.\n"
-                    }
-                },
-                "type": "object",
-                "required": [
-                    "name"
-                ]
-            },
-            "outputs": {
-                "description": "A collection of values returned by getLanguage.\n",
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "description": "Language ID.\n"
-                    },
-                    "name": {
-                        "type": "string",
-                        "description": "Language.\n"
-                    },
-                    "nameLower": {
-                        "type": "string",
-                        "description": "Language in lowercase.\n"
-                    }
-                },
-                "type": "object",
-                "required": [
-                    "id",
-                    "name",
-                    "nameLower"
-                ]
-            }
-        },
-        "whisparr:Languages/getLanguages:getLanguages": {
-            "description": "\u003c!-- subcategory:Profiles --\u003eList all available Languages.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as whisparr from \"@pulumi/whisparr\";\n\nconst example = whisparr.Languages.getLanguages({});\n```\n```python\nimport pulumi\nimport pulumi_whisparr as whisparr\n\nexample = whisparr.Languages.get_languages()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Whisparr = Pulumi.Whisparr;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Whisparr.Languages.GetLanguages.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/MaienM/pulumi-whisparr/sdk/go/whisparr/Languages\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := Languages.GetLanguages(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.whisparr.Languages.LanguagesFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = LanguagesFunctions.getLanguages();\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: whisparr:Languages:getLanguages\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
-            "outputs": {
-                "description": "A collection of values returned by getLanguages.\n",
-                "properties": {
-                    "id": {
-                        "type": "string",
-                        "description": "The ID of this resource.\n"
-                    },
-                    "languages": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/types/whisparr:Languages/getLanguagesLanguage:getLanguagesLanguage"
-                        },
-                        "description": "Language list.\n"
-                    }
-                },
-                "type": "object",
-                "required": [
-                    "id",
-                    "languages"
-                ]
-            }
-        },
         "whisparr:MediaManagement/getMediaManagement:getMediaManagement": {
             "description": "\u003c!-- subcategory:Media Management --\u003eMedia Management.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as whisparr from \"@pulumi/whisparr\";\n\nconst example = whisparr.MediaManagement.getMediaManagement({});\n```\n```python\nimport pulumi\nimport pulumi_whisparr as whisparr\n\nexample = whisparr.MediaManagement.get_media_management()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Whisparr = Pulumi.Whisparr;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Whisparr.MediaManagement.GetMediaManagement.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/MaienM/pulumi-whisparr/sdk/go/whisparr/MediaManagement\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := MediaManagement.GetMediaManagement(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.whisparr.MediaManagement.MediaManagementFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = MediaManagementFunctions.getMediaManagement();\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: whisparr:MediaManagement:getMediaManagement\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
             "outputs": {
@@ -25789,6 +25726,69 @@
                 "required": [
                     "delayProfiles",
                     "id"
+                ]
+            }
+        },
+        "whisparr:Profiles/getLanguage:getLanguage": {
+            "description": "\u003c!-- subcategory:Profiles --\u003eSingle available Language.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as whisparr from \"@pulumi/whisparr\";\n\nconst example = whisparr.Profiles.getLanguage({\n    name: \"English\",\n});\n```\n```python\nimport pulumi\nimport pulumi_whisparr as whisparr\n\nexample = whisparr.Profiles.get_language(name=\"English\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Whisparr = Pulumi.Whisparr;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Whisparr.Profiles.GetLanguage.Invoke(new()\n    {\n        Name = \"English\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/MaienM/pulumi-whisparr/sdk/go/whisparr/Profiles\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := Profiles.GetLanguage(ctx, \u0026profiles.GetLanguageArgs{\n\t\t\tName: \"English\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.whisparr.Profiles.ProfilesFunctions;\nimport com.pulumi.whisparr.Profiles.inputs.GetLanguageArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = ProfilesFunctions.getLanguage(GetLanguageArgs.builder()\n            .name(\"English\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: whisparr:Profiles:getLanguage\n      Arguments:\n        name: English\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getLanguage.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Language.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLanguage.\n",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Language ID.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Language.\n"
+                    },
+                    "nameLower": {
+                        "type": "string",
+                        "description": "Language in lowercase.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "name",
+                    "nameLower"
+                ]
+            }
+        },
+        "whisparr:Profiles/getLanguages:getLanguages": {
+            "description": "\u003c!-- subcategory:Profiles --\u003eList all available Languages.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as whisparr from \"@pulumi/whisparr\";\n\nconst example = whisparr.Profiles.getLanguages({});\n```\n```python\nimport pulumi\nimport pulumi_whisparr as whisparr\n\nexample = whisparr.Profiles.get_languages()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Whisparr = Pulumi.Whisparr;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Whisparr.Profiles.GetLanguages.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/MaienM/pulumi-whisparr/sdk/go/whisparr/Profiles\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := Profiles.GetLanguages(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.whisparr.Profiles.ProfilesFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = ProfilesFunctions.getLanguages();\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: whisparr:Profiles:getLanguages\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "outputs": {
+                "description": "A collection of values returned by getLanguages.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of this resource.\n"
+                    },
+                    "languages": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/whisparr:Profiles/getLanguagesLanguage:getLanguagesLanguage"
+                        },
+                        "description": "Language list.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "languages"
                 ]
             }
         },

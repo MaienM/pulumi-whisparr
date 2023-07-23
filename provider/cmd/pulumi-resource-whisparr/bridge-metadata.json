@@ -110,8 +110,6 @@
             "whisparr:Indexers/getIndexers:getIndexers": "whisparr_indexers",
             "whisparr:Indexers/getRestriction:getRestriction": "whisparr_restriction",
             "whisparr:Indexers/getRestrictions:getRestrictions": "whisparr_restrictions",
-            "whisparr:Languages/getLanguage:getLanguage": "whisparr_language",
-            "whisparr:Languages/getLanguages:getLanguages": "whisparr_languages",
             "whisparr:MediaManagement/getMediaManagement:getMediaManagement": "whisparr_media_management",
             "whisparr:MediaManagement/getNaming:getNaming": "whisparr_naming",
             "whisparr:MediaManagement/getRootFolder:getRootFolder": "whisparr_root_folder",
@@ -136,6 +134,8 @@
             "whisparr:Profiles/getCustomFormats:getCustomFormats": "whisparr_custom_formats",
             "whisparr:Profiles/getDelayProfile:getDelayProfile": "whisparr_delay_profile",
             "whisparr:Profiles/getDelayProfiles:getDelayProfiles": "whisparr_delay_profiles",
+            "whisparr:Profiles/getLanguage:getLanguage": "whisparr_language",
+            "whisparr:Profiles/getLanguages:getLanguages": "whisparr_languages",
             "whisparr:Profiles/getQuality:getQuality": "whisparr_quality",
             "whisparr:Profiles/getQualityDefinition:getQualityDefinition": "whisparr_quality_definition",
             "whisparr:Profiles/getQualityDefinitions:getQualityDefinitions": "whisparr_quality_definitions",
@@ -989,12 +989,6 @@
                 "seedRatio": "seed_ratio",
                 "seedTime": "seed_time"
             },
-            "whisparr:Languages/getLanguage:getLanguage": {
-                "nameLower": "name_lower"
-            },
-            "whisparr:Languages/getLanguagesLanguage:getLanguagesLanguage": {
-                "nameLower": "name_lower"
-            },
             "whisparr:MediaManagement/getMediaManagement:getMediaManagement": {
                 "autoRenameFolders": "auto_rename_folders",
                 "autoUnmonitorPreviouslyDownloadedMovies": "auto_unmonitor_previously_downloaded_movies",
@@ -1629,6 +1623,12 @@
                 "preferredProtocol": "preferred_protocol",
                 "torrentDelay": "torrent_delay",
                 "usenetDelay": "usenet_delay"
+            },
+            "whisparr:Profiles/getLanguage:getLanguage": {
+                "nameLower": "name_lower"
+            },
+            "whisparr:Profiles/getLanguagesLanguage:getLanguagesLanguage": {
+                "nameLower": "name_lower"
             },
             "whisparr:Profiles/getQualityDefinition:getQualityDefinition": {
                 "maxSize": "max_size",
