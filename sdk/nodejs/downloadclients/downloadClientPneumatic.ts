@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as whisparr from "@maienm/pulumi-whisparr";
  *
- * const example = new whisparr.downloadclient.DownloadClientPneumatic("example", {
+ * const example = new whisparr.downloadclients.DownloadClientPneumatic("example", {
  *     enable: true,
  *     name: "Example",
  *     nzbFolder: "/nzb/",
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * import using the API/UI ID
  *
  * ```sh
- *  $ pulumi import whisparr:DownloadClient/downloadClientPneumatic:DownloadClientPneumatic example 1
+ *  $ pulumi import whisparr:DownloadClients/downloadClientPneumatic:DownloadClientPneumatic example 1
  * ```
  */
 export class DownloadClientPneumatic extends pulumi.CustomResource {
@@ -46,7 +46,7 @@ export class DownloadClientPneumatic extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'whisparr:DownloadClient/downloadClientPneumatic:DownloadClientPneumatic';
+    public static readonly __pulumiType = 'whisparr:DownloadClients/downloadClientPneumatic:DownloadClientPneumatic';
 
     /**
      * Returns true if the given object is an instance of DownloadClientPneumatic.  This is designed to work even

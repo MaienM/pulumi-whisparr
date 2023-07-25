@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * <!-- subcategory:Download Clients -->Download Client Transmission resource.
- * For more information refer to [Download Client](https://wiki.servarr.com/whisparr/settings#download-clients) and [Transmission](https://wiki.servarr.com/whisparr/supported#transmission).
+ * <!-- subcategory:Download Clients -->Download Client Sabnzbd resource.
+ * For more information refer to [Download Client](https://wiki.servarr.com/whisparr/settings#download-clients) and [Sabnzbd](https://wiki.servarr.com/whisparr/supported#sabnzbd).
  *
  * ## Example Usage
  *
@@ -14,13 +14,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as whisparr from "@maienm/pulumi-whisparr";
  *
- * const example = new whisparr.downloadclient.DownloadClientTransmission("example", {
+ * const example = new whisparr.downloadclients.DownloadClientSabnzbd("example", {
+ *     apiKey: "test",
  *     enable: true,
- *     host: "transmission",
+ *     host: "sabnzbd",
  *     name: "Example",
  *     port: 9091,
  *     priority: 1,
- *     urlBase: "/transmission/",
+ *     urlBase: "/sabnzbd/",
  * });
  * ```
  *
@@ -29,12 +30,12 @@ import * as utilities from "../utilities";
  * import using the API/UI ID
  *
  * ```sh
- *  $ pulumi import whisparr:DownloadClient/downloadClientTransmission:DownloadClientTransmission example 1
+ *  $ pulumi import whisparr:DownloadClients/downloadClientSabnzbd:DownloadClientSabnzbd example 1
  * ```
  */
-export class DownloadClientTransmission extends pulumi.CustomResource {
+export class DownloadClientSabnzbd extends pulumi.CustomResource {
     /**
-     * Get an existing DownloadClientTransmission resource's state with the given name, ID, and optional extra
+     * Get an existing DownloadClientSabnzbd resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -42,28 +43,28 @@ export class DownloadClientTransmission extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientTransmissionState, opts?: pulumi.CustomResourceOptions): DownloadClientTransmission {
-        return new DownloadClientTransmission(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientSabnzbdState, opts?: pulumi.CustomResourceOptions): DownloadClientSabnzbd {
+        return new DownloadClientSabnzbd(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'whisparr:DownloadClient/downloadClientTransmission:DownloadClientTransmission';
+    public static readonly __pulumiType = 'whisparr:DownloadClients/downloadClientSabnzbd:DownloadClientSabnzbd';
 
     /**
-     * Returns true if the given object is an instance of DownloadClientTransmission.  This is designed to work even
+     * Returns true if the given object is an instance of DownloadClientSabnzbd.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is DownloadClientTransmission {
+    public static isInstance(obj: any): obj is DownloadClientSabnzbd {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === DownloadClientTransmission.__pulumiType;
+        return obj['__pulumiType'] === DownloadClientSabnzbd.__pulumiType;
     }
 
     /**
-     * Add paused flag.
+     * API key.
      */
-    public readonly addPaused!: pulumi.Output<boolean>;
+    public readonly apiKey!: pulumi.Output<string>;
     /**
      * Enable flag.
      */
@@ -77,15 +78,11 @@ export class DownloadClientTransmission extends pulumi.CustomResource {
      */
     public readonly movieCategory!: pulumi.Output<string>;
     /**
-     * Movie directory.
-     */
-    public readonly movieDirectory!: pulumi.Output<string>;
-    /**
      * Download Client name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Older Movie priority. `0` Last, `1` First.
+     * Older Movie priority. `-100` Default, `-2` Paused, `-1` Low, `0` Normal, `1` High, `2` Force.
      */
     public readonly olderMoviePriority!: pulumi.Output<number>;
     /**
@@ -101,7 +98,7 @@ export class DownloadClientTransmission extends pulumi.CustomResource {
      */
     public readonly priority!: pulumi.Output<number>;
     /**
-     * Recent Movie priority. `0` Last, `1` First.
+     * Recent Movie priority. `-100` Default, `-2` Paused, `-1` Low, `0` Normal, `1` High, `2` Force.
      */
     public readonly recentMoviePriority!: pulumi.Output<number>;
     /**
@@ -130,23 +127,22 @@ export class DownloadClientTransmission extends pulumi.CustomResource {
     public readonly username!: pulumi.Output<string>;
 
     /**
-     * Create a DownloadClientTransmission resource with the given unique name, arguments, and options.
+     * Create a DownloadClientSabnzbd resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DownloadClientTransmissionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DownloadClientTransmissionArgs | DownloadClientTransmissionState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DownloadClientSabnzbdArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DownloadClientSabnzbdArgs | DownloadClientSabnzbdState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
-            const state = argsOrState as DownloadClientTransmissionState | undefined;
-            resourceInputs["addPaused"] = state ? state.addPaused : undefined;
+            const state = argsOrState as DownloadClientSabnzbdState | undefined;
+            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
             resourceInputs["enable"] = state ? state.enable : undefined;
             resourceInputs["host"] = state ? state.host : undefined;
             resourceInputs["movieCategory"] = state ? state.movieCategory : undefined;
-            resourceInputs["movieDirectory"] = state ? state.movieDirectory : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["olderMoviePriority"] = state ? state.olderMoviePriority : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
@@ -160,15 +156,14 @@ export class DownloadClientTransmission extends pulumi.CustomResource {
             resourceInputs["useSsl"] = state ? state.useSsl : undefined;
             resourceInputs["username"] = state ? state.username : undefined;
         } else {
-            const args = argsOrState as DownloadClientTransmissionArgs | undefined;
+            const args = argsOrState as DownloadClientSabnzbdArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["addPaused"] = args ? args.addPaused : undefined;
+            resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
             resourceInputs["enable"] = args ? args.enable : undefined;
             resourceInputs["host"] = args ? args.host : undefined;
             resourceInputs["movieCategory"] = args ? args.movieCategory : undefined;
-            resourceInputs["movieDirectory"] = args ? args.movieDirectory : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["olderMoviePriority"] = args ? args.olderMoviePriority : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
@@ -183,20 +178,20 @@ export class DownloadClientTransmission extends pulumi.CustomResource {
             resourceInputs["username"] = args ? args.username : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["password"] };
+        const secretOpts = { additionalSecretOutputs: ["apiKey", "password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(DownloadClientTransmission.__pulumiType, name, resourceInputs, opts);
+        super(DownloadClientSabnzbd.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering DownloadClientTransmission resources.
+ * Input properties used for looking up and filtering DownloadClientSabnzbd resources.
  */
-export interface DownloadClientTransmissionState {
+export interface DownloadClientSabnzbdState {
     /**
-     * Add paused flag.
+     * API key.
      */
-    addPaused?: pulumi.Input<boolean>;
+    apiKey?: pulumi.Input<string>;
     /**
      * Enable flag.
      */
@@ -210,15 +205,11 @@ export interface DownloadClientTransmissionState {
      */
     movieCategory?: pulumi.Input<string>;
     /**
-     * Movie directory.
-     */
-    movieDirectory?: pulumi.Input<string>;
-    /**
      * Download Client name.
      */
     name?: pulumi.Input<string>;
     /**
-     * Older Movie priority. `0` Last, `1` First.
+     * Older Movie priority. `-100` Default, `-2` Paused, `-1` Low, `0` Normal, `1` High, `2` Force.
      */
     olderMoviePriority?: pulumi.Input<number>;
     /**
@@ -234,7 +225,7 @@ export interface DownloadClientTransmissionState {
      */
     priority?: pulumi.Input<number>;
     /**
-     * Recent Movie priority. `0` Last, `1` First.
+     * Recent Movie priority. `-100` Default, `-2` Paused, `-1` Low, `0` Normal, `1` High, `2` Force.
      */
     recentMoviePriority?: pulumi.Input<number>;
     /**
@@ -264,13 +255,13 @@ export interface DownloadClientTransmissionState {
 }
 
 /**
- * The set of arguments for constructing a DownloadClientTransmission resource.
+ * The set of arguments for constructing a DownloadClientSabnzbd resource.
  */
-export interface DownloadClientTransmissionArgs {
+export interface DownloadClientSabnzbdArgs {
     /**
-     * Add paused flag.
+     * API key.
      */
-    addPaused?: pulumi.Input<boolean>;
+    apiKey?: pulumi.Input<string>;
     /**
      * Enable flag.
      */
@@ -284,15 +275,11 @@ export interface DownloadClientTransmissionArgs {
      */
     movieCategory?: pulumi.Input<string>;
     /**
-     * Movie directory.
-     */
-    movieDirectory?: pulumi.Input<string>;
-    /**
      * Download Client name.
      */
     name: pulumi.Input<string>;
     /**
-     * Older Movie priority. `0` Last, `1` First.
+     * Older Movie priority. `-100` Default, `-2` Paused, `-1` Low, `0` Normal, `1` High, `2` Force.
      */
     olderMoviePriority?: pulumi.Input<number>;
     /**
@@ -308,7 +295,7 @@ export interface DownloadClientTransmissionArgs {
      */
     priority?: pulumi.Input<number>;
     /**
-     * Recent Movie priority. `0` Last, `1` First.
+     * Recent Movie priority. `-100` Default, `-2` Paused, `-1` Low, `0` Normal, `1` High, `2` Force.
      */
     recentMoviePriority?: pulumi.Input<number>;
     /**

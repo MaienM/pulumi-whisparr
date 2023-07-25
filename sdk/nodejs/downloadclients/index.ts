@@ -132,68 +132,68 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "whisparr:DownloadClient/downloadClient:DownloadClient":
+            case "whisparr:DownloadClients/downloadClient:DownloadClient":
                 return new DownloadClient(name, <any>undefined, { urn })
-            case "whisparr:DownloadClient/downloadClientAria2:DownloadClientAria2":
+            case "whisparr:DownloadClients/downloadClientAria2:DownloadClientAria2":
                 return new DownloadClientAria2(name, <any>undefined, { urn })
-            case "whisparr:DownloadClient/downloadClientConfig:DownloadClientConfig":
+            case "whisparr:DownloadClients/downloadClientConfig:DownloadClientConfig":
                 return new DownloadClientConfig(name, <any>undefined, { urn })
-            case "whisparr:DownloadClient/downloadClientDeluge:DownloadClientDeluge":
+            case "whisparr:DownloadClients/downloadClientDeluge:DownloadClientDeluge":
                 return new DownloadClientDeluge(name, <any>undefined, { urn })
-            case "whisparr:DownloadClient/downloadClientFlood:DownloadClientFlood":
+            case "whisparr:DownloadClients/downloadClientFlood:DownloadClientFlood":
                 return new DownloadClientFlood(name, <any>undefined, { urn })
-            case "whisparr:DownloadClient/downloadClientHadouken:DownloadClientHadouken":
+            case "whisparr:DownloadClients/downloadClientHadouken:DownloadClientHadouken":
                 return new DownloadClientHadouken(name, <any>undefined, { urn })
-            case "whisparr:DownloadClient/downloadClientNzbget:DownloadClientNzbget":
+            case "whisparr:DownloadClients/downloadClientNzbget:DownloadClientNzbget":
                 return new DownloadClientNzbget(name, <any>undefined, { urn })
-            case "whisparr:DownloadClient/downloadClientNzbvortex:DownloadClientNzbvortex":
+            case "whisparr:DownloadClients/downloadClientNzbvortex:DownloadClientNzbvortex":
                 return new DownloadClientNzbvortex(name, <any>undefined, { urn })
-            case "whisparr:DownloadClient/downloadClientPneumatic:DownloadClientPneumatic":
+            case "whisparr:DownloadClients/downloadClientPneumatic:DownloadClientPneumatic":
                 return new DownloadClientPneumatic(name, <any>undefined, { urn })
-            case "whisparr:DownloadClient/downloadClientQbittorrent:DownloadClientQbittorrent":
+            case "whisparr:DownloadClients/downloadClientQbittorrent:DownloadClientQbittorrent":
                 return new DownloadClientQbittorrent(name, <any>undefined, { urn })
-            case "whisparr:DownloadClient/downloadClientRtorrent:DownloadClientRtorrent":
+            case "whisparr:DownloadClients/downloadClientRtorrent:DownloadClientRtorrent":
                 return new DownloadClientRtorrent(name, <any>undefined, { urn })
-            case "whisparr:DownloadClient/downloadClientSabnzbd:DownloadClientSabnzbd":
+            case "whisparr:DownloadClients/downloadClientSabnzbd:DownloadClientSabnzbd":
                 return new DownloadClientSabnzbd(name, <any>undefined, { urn })
-            case "whisparr:DownloadClient/downloadClientTorrentBlackhole:DownloadClientTorrentBlackhole":
+            case "whisparr:DownloadClients/downloadClientTorrentBlackhole:DownloadClientTorrentBlackhole":
                 return new DownloadClientTorrentBlackhole(name, <any>undefined, { urn })
-            case "whisparr:DownloadClient/downloadClientTorrentDownloadStation:DownloadClientTorrentDownloadStation":
+            case "whisparr:DownloadClients/downloadClientTorrentDownloadStation:DownloadClientTorrentDownloadStation":
                 return new DownloadClientTorrentDownloadStation(name, <any>undefined, { urn })
-            case "whisparr:DownloadClient/downloadClientTransmission:DownloadClientTransmission":
+            case "whisparr:DownloadClients/downloadClientTransmission:DownloadClientTransmission":
                 return new DownloadClientTransmission(name, <any>undefined, { urn })
-            case "whisparr:DownloadClient/downloadClientUsenetBlackhole:DownloadClientUsenetBlackhole":
+            case "whisparr:DownloadClients/downloadClientUsenetBlackhole:DownloadClientUsenetBlackhole":
                 return new DownloadClientUsenetBlackhole(name, <any>undefined, { urn })
-            case "whisparr:DownloadClient/downloadClientUsenetDownloadStation:DownloadClientUsenetDownloadStation":
+            case "whisparr:DownloadClients/downloadClientUsenetDownloadStation:DownloadClientUsenetDownloadStation":
                 return new DownloadClientUsenetDownloadStation(name, <any>undefined, { urn })
-            case "whisparr:DownloadClient/downloadClientUtorrent:DownloadClientUtorrent":
+            case "whisparr:DownloadClients/downloadClientUtorrent:DownloadClientUtorrent":
                 return new DownloadClientUtorrent(name, <any>undefined, { urn })
-            case "whisparr:DownloadClient/downloadClientVuze:DownloadClientVuze":
+            case "whisparr:DownloadClients/downloadClientVuze:DownloadClientVuze":
                 return new DownloadClientVuze(name, <any>undefined, { urn })
-            case "whisparr:DownloadClient/remotePathMapping:RemotePathMapping":
+            case "whisparr:DownloadClients/remotePathMapping:RemotePathMapping":
                 return new RemotePathMapping(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("whisparr", "DownloadClient/downloadClient", _module)
-pulumi.runtime.registerResourceModule("whisparr", "DownloadClient/downloadClientAria2", _module)
-pulumi.runtime.registerResourceModule("whisparr", "DownloadClient/downloadClientConfig", _module)
-pulumi.runtime.registerResourceModule("whisparr", "DownloadClient/downloadClientDeluge", _module)
-pulumi.runtime.registerResourceModule("whisparr", "DownloadClient/downloadClientFlood", _module)
-pulumi.runtime.registerResourceModule("whisparr", "DownloadClient/downloadClientHadouken", _module)
-pulumi.runtime.registerResourceModule("whisparr", "DownloadClient/downloadClientNzbget", _module)
-pulumi.runtime.registerResourceModule("whisparr", "DownloadClient/downloadClientNzbvortex", _module)
-pulumi.runtime.registerResourceModule("whisparr", "DownloadClient/downloadClientPneumatic", _module)
-pulumi.runtime.registerResourceModule("whisparr", "DownloadClient/downloadClientQbittorrent", _module)
-pulumi.runtime.registerResourceModule("whisparr", "DownloadClient/downloadClientRtorrent", _module)
-pulumi.runtime.registerResourceModule("whisparr", "DownloadClient/downloadClientSabnzbd", _module)
-pulumi.runtime.registerResourceModule("whisparr", "DownloadClient/downloadClientTorrentBlackhole", _module)
-pulumi.runtime.registerResourceModule("whisparr", "DownloadClient/downloadClientTorrentDownloadStation", _module)
-pulumi.runtime.registerResourceModule("whisparr", "DownloadClient/downloadClientTransmission", _module)
-pulumi.runtime.registerResourceModule("whisparr", "DownloadClient/downloadClientUsenetBlackhole", _module)
-pulumi.runtime.registerResourceModule("whisparr", "DownloadClient/downloadClientUsenetDownloadStation", _module)
-pulumi.runtime.registerResourceModule("whisparr", "DownloadClient/downloadClientUtorrent", _module)
-pulumi.runtime.registerResourceModule("whisparr", "DownloadClient/downloadClientVuze", _module)
-pulumi.runtime.registerResourceModule("whisparr", "DownloadClient/remotePathMapping", _module)
+pulumi.runtime.registerResourceModule("whisparr", "DownloadClients/downloadClient", _module)
+pulumi.runtime.registerResourceModule("whisparr", "DownloadClients/downloadClientAria2", _module)
+pulumi.runtime.registerResourceModule("whisparr", "DownloadClients/downloadClientConfig", _module)
+pulumi.runtime.registerResourceModule("whisparr", "DownloadClients/downloadClientDeluge", _module)
+pulumi.runtime.registerResourceModule("whisparr", "DownloadClients/downloadClientFlood", _module)
+pulumi.runtime.registerResourceModule("whisparr", "DownloadClients/downloadClientHadouken", _module)
+pulumi.runtime.registerResourceModule("whisparr", "DownloadClients/downloadClientNzbget", _module)
+pulumi.runtime.registerResourceModule("whisparr", "DownloadClients/downloadClientNzbvortex", _module)
+pulumi.runtime.registerResourceModule("whisparr", "DownloadClients/downloadClientPneumatic", _module)
+pulumi.runtime.registerResourceModule("whisparr", "DownloadClients/downloadClientQbittorrent", _module)
+pulumi.runtime.registerResourceModule("whisparr", "DownloadClients/downloadClientRtorrent", _module)
+pulumi.runtime.registerResourceModule("whisparr", "DownloadClients/downloadClientSabnzbd", _module)
+pulumi.runtime.registerResourceModule("whisparr", "DownloadClients/downloadClientTorrentBlackhole", _module)
+pulumi.runtime.registerResourceModule("whisparr", "DownloadClients/downloadClientTorrentDownloadStation", _module)
+pulumi.runtime.registerResourceModule("whisparr", "DownloadClients/downloadClientTransmission", _module)
+pulumi.runtime.registerResourceModule("whisparr", "DownloadClients/downloadClientUsenetBlackhole", _module)
+pulumi.runtime.registerResourceModule("whisparr", "DownloadClients/downloadClientUsenetDownloadStation", _module)
+pulumi.runtime.registerResourceModule("whisparr", "DownloadClients/downloadClientUtorrent", _module)
+pulumi.runtime.registerResourceModule("whisparr", "DownloadClients/downloadClientVuze", _module)
+pulumi.runtime.registerResourceModule("whisparr", "DownloadClients/remotePathMapping", _module)

@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * <!-- subcategory:Download Clients -->Download Client Usenet Blackhole resource.
- * For more information refer to [Download Client](https://wiki.servarr.com/whisparr/settings#download-clients) and [UsenetBlackhole](https://wiki.servarr.com/whisparr/supported#usenetblackhole).
+ * <!-- subcategory:Download Clients -->Download Client TorrentDownloadStation resource.
+ * For more information refer to [Download Client](https://wiki.servarr.com/whisparr/settings#download-clients) and [TorrentDownloadStation](https://wiki.servarr.com/whisparr/supported#torrentdownloadstation).
  *
  * ## Example Usage
  *
@@ -14,12 +14,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as whisparr from "@maienm/pulumi-whisparr";
  *
- * const example = new whisparr.downloadclient.DownloadClientUsenetBlackhole("example", {
+ * const example = new whisparr.downloadclients.DownloadClientTorrentDownloadStation("example", {
  *     enable: true,
+ *     host: "downloadstation",
  *     name: "Example",
- *     nzbFolder: "/nzb/",
+ *     port: 5000,
  *     priority: 1,
- *     watchFolder: "/watch/",
  * });
  * ```
  *
@@ -28,12 +28,12 @@ import * as utilities from "../utilities";
  * import using the API/UI ID
  *
  * ```sh
- *  $ pulumi import whisparr:DownloadClient/downloadClientUsenetBlackhole:DownloadClientUsenetBlackhole example 1
+ *  $ pulumi import whisparr:DownloadClients/downloadClientTorrentDownloadStation:DownloadClientTorrentDownloadStation example 1
  * ```
  */
-export class DownloadClientUsenetBlackhole extends pulumi.CustomResource {
+export class DownloadClientTorrentDownloadStation extends pulumi.CustomResource {
     /**
-     * Get an existing DownloadClientUsenetBlackhole resource's state with the given name, ID, and optional extra
+     * Get an existing DownloadClientTorrentDownloadStation resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -41,22 +41,22 @@ export class DownloadClientUsenetBlackhole extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientUsenetBlackholeState, opts?: pulumi.CustomResourceOptions): DownloadClientUsenetBlackhole {
-        return new DownloadClientUsenetBlackhole(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientTorrentDownloadStationState, opts?: pulumi.CustomResourceOptions): DownloadClientTorrentDownloadStation {
+        return new DownloadClientTorrentDownloadStation(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'whisparr:DownloadClient/downloadClientUsenetBlackhole:DownloadClientUsenetBlackhole';
+    public static readonly __pulumiType = 'whisparr:DownloadClients/downloadClientTorrentDownloadStation:DownloadClientTorrentDownloadStation';
 
     /**
-     * Returns true if the given object is an instance of DownloadClientUsenetBlackhole.  This is designed to work even
+     * Returns true if the given object is an instance of DownloadClientTorrentDownloadStation.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is DownloadClientUsenetBlackhole {
+    public static isInstance(obj: any): obj is DownloadClientTorrentDownloadStation {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === DownloadClientUsenetBlackhole.__pulumiType;
+        return obj['__pulumiType'] === DownloadClientTorrentDownloadStation.__pulumiType;
     }
 
     /**
@@ -64,13 +64,21 @@ export class DownloadClientUsenetBlackhole extends pulumi.CustomResource {
      */
     public readonly enable!: pulumi.Output<boolean>;
     /**
+     * host.
+     */
+    public readonly host!: pulumi.Output<string>;
+    /**
      * Download Client name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Usenet folder.
+     * Password.
      */
-    public readonly nzbFolder!: pulumi.Output<string>;
+    public readonly password!: pulumi.Output<string>;
+    /**
+     * Port.
+     */
+    public readonly port!: pulumi.Output<number>;
     /**
      * Priority.
      */
@@ -88,72 +96,86 @@ export class DownloadClientUsenetBlackhole extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<number[]>;
     /**
-     * Watch folder flag.
+     * Use SSL flag.
      */
-    public readonly watchFolder!: pulumi.Output<string>;
+    public readonly useSsl!: pulumi.Output<boolean>;
+    /**
+     * Username.
+     */
+    public readonly username!: pulumi.Output<string>;
 
     /**
-     * Create a DownloadClientUsenetBlackhole resource with the given unique name, arguments, and options.
+     * Create a DownloadClientTorrentDownloadStation resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DownloadClientUsenetBlackholeArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DownloadClientUsenetBlackholeArgs | DownloadClientUsenetBlackholeState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DownloadClientTorrentDownloadStationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DownloadClientTorrentDownloadStationArgs | DownloadClientTorrentDownloadStationState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
-            const state = argsOrState as DownloadClientUsenetBlackholeState | undefined;
+            const state = argsOrState as DownloadClientTorrentDownloadStationState | undefined;
             resourceInputs["enable"] = state ? state.enable : undefined;
+            resourceInputs["host"] = state ? state.host : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nzbFolder"] = state ? state.nzbFolder : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
             resourceInputs["removeCompletedDownloads"] = state ? state.removeCompletedDownloads : undefined;
             resourceInputs["removeFailedDownloads"] = state ? state.removeFailedDownloads : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["watchFolder"] = state ? state.watchFolder : undefined;
+            resourceInputs["useSsl"] = state ? state.useSsl : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
-            const args = argsOrState as DownloadClientUsenetBlackholeArgs | undefined;
+            const args = argsOrState as DownloadClientTorrentDownloadStationArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.nzbFolder === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'nzbFolder'");
-            }
-            if ((!args || args.watchFolder === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'watchFolder'");
-            }
             resourceInputs["enable"] = args ? args.enable : undefined;
+            resourceInputs["host"] = args ? args.host : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nzbFolder"] = args ? args.nzbFolder : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["removeCompletedDownloads"] = args ? args.removeCompletedDownloads : undefined;
             resourceInputs["removeFailedDownloads"] = args ? args.removeFailedDownloads : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["watchFolder"] = args ? args.watchFolder : undefined;
+            resourceInputs["useSsl"] = args ? args.useSsl : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DownloadClientUsenetBlackhole.__pulumiType, name, resourceInputs, opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
+        super(DownloadClientTorrentDownloadStation.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering DownloadClientUsenetBlackhole resources.
+ * Input properties used for looking up and filtering DownloadClientTorrentDownloadStation resources.
  */
-export interface DownloadClientUsenetBlackholeState {
+export interface DownloadClientTorrentDownloadStationState {
     /**
      * Enable flag.
      */
     enable?: pulumi.Input<boolean>;
+    /**
+     * host.
+     */
+    host?: pulumi.Input<string>;
     /**
      * Download Client name.
      */
     name?: pulumi.Input<string>;
     /**
-     * Usenet folder.
+     * Password.
      */
-    nzbFolder?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
+    /**
+     * Port.
+     */
+    port?: pulumi.Input<number>;
     /**
      * Priority.
      */
@@ -171,27 +193,39 @@ export interface DownloadClientUsenetBlackholeState {
      */
     tags?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Watch folder flag.
+     * Use SSL flag.
      */
-    watchFolder?: pulumi.Input<string>;
+    useSsl?: pulumi.Input<boolean>;
+    /**
+     * Username.
+     */
+    username?: pulumi.Input<string>;
 }
 
 /**
- * The set of arguments for constructing a DownloadClientUsenetBlackhole resource.
+ * The set of arguments for constructing a DownloadClientTorrentDownloadStation resource.
  */
-export interface DownloadClientUsenetBlackholeArgs {
+export interface DownloadClientTorrentDownloadStationArgs {
     /**
      * Enable flag.
      */
     enable?: pulumi.Input<boolean>;
     /**
+     * host.
+     */
+    host?: pulumi.Input<string>;
+    /**
      * Download Client name.
      */
     name: pulumi.Input<string>;
     /**
-     * Usenet folder.
+     * Password.
      */
-    nzbFolder: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
+    /**
+     * Port.
+     */
+    port?: pulumi.Input<number>;
     /**
      * Priority.
      */
@@ -209,7 +243,11 @@ export interface DownloadClientUsenetBlackholeArgs {
      */
     tags?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Watch folder flag.
+     * Use SSL flag.
      */
-    watchFolder: pulumi.Input<string>;
+    useSsl?: pulumi.Input<boolean>;
+    /**
+     * Username.
+     */
+    username?: pulumi.Input<string>;
 }

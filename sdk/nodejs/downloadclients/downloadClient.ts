@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as whisparr from "@maienm/pulumi-whisparr";
  *
- * const example = new whisparr.downloadclient.DownloadClient("example", {
+ * const example = new whisparr.downloadclients.DownloadClient("example", {
  *     configContract: "TransmissionSettings",
  *     enable: true,
  *     host: "transmission",
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * import using the API/UI ID
  *
  * ```sh
- *  $ pulumi import whisparr:DownloadClient/downloadClient:DownloadClient example 1
+ *  $ pulumi import whisparr:DownloadClients/downloadClient:DownloadClient example 1
  * ```
  */
 export class DownloadClient extends pulumi.CustomResource {
@@ -50,7 +50,7 @@ export class DownloadClient extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'whisparr:DownloadClient/downloadClient:DownloadClient';
+    public static readonly __pulumiType = 'whisparr:DownloadClients/downloadClient:DownloadClient';
 
     /**
      * Returns true if the given object is an instance of DownloadClient.  This is designed to work even

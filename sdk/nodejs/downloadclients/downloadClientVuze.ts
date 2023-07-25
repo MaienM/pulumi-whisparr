@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * <!-- subcategory:Download Clients -->Download Client TorrentDownloadStation resource.
- * For more information refer to [Download Client](https://wiki.servarr.com/whisparr/settings#download-clients) and [TorrentDownloadStation](https://wiki.servarr.com/whisparr/supported#torrentdownloadstation).
+ * <!-- subcategory:Download Clients -->Download Client Vuze resource.
+ * For more information refer to [Download Client](https://wiki.servarr.com/whisparr/settings#download-clients) and [Vuze](https://wiki.servarr.com/whisparr/supported#vuze).
  *
  * ## Example Usage
  *
@@ -14,12 +14,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as whisparr from "@maienm/pulumi-whisparr";
  *
- * const example = new whisparr.downloadclient.DownloadClientTorrentDownloadStation("example", {
+ * const example = new whisparr.downloadclients.DownloadClientVuze("example", {
  *     enable: true,
- *     host: "downloadstation",
+ *     host: "vuze",
  *     name: "Example",
- *     port: 5000,
+ *     port: 9091,
  *     priority: 1,
+ *     urlBase: "/vuze/",
  * });
  * ```
  *
@@ -28,12 +29,12 @@ import * as utilities from "../utilities";
  * import using the API/UI ID
  *
  * ```sh
- *  $ pulumi import whisparr:DownloadClient/downloadClientTorrentDownloadStation:DownloadClientTorrentDownloadStation example 1
+ *  $ pulumi import whisparr:DownloadClients/downloadClientVuze:DownloadClientVuze example 1
  * ```
  */
-export class DownloadClientTorrentDownloadStation extends pulumi.CustomResource {
+export class DownloadClientVuze extends pulumi.CustomResource {
     /**
-     * Get an existing DownloadClientTorrentDownloadStation resource's state with the given name, ID, and optional extra
+     * Get an existing DownloadClientVuze resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -41,24 +42,28 @@ export class DownloadClientTorrentDownloadStation extends pulumi.CustomResource 
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientTorrentDownloadStationState, opts?: pulumi.CustomResourceOptions): DownloadClientTorrentDownloadStation {
-        return new DownloadClientTorrentDownloadStation(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientVuzeState, opts?: pulumi.CustomResourceOptions): DownloadClientVuze {
+        return new DownloadClientVuze(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'whisparr:DownloadClient/downloadClientTorrentDownloadStation:DownloadClientTorrentDownloadStation';
+    public static readonly __pulumiType = 'whisparr:DownloadClients/downloadClientVuze:DownloadClientVuze';
 
     /**
-     * Returns true if the given object is an instance of DownloadClientTorrentDownloadStation.  This is designed to work even
+     * Returns true if the given object is an instance of DownloadClientVuze.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is DownloadClientTorrentDownloadStation {
+    public static isInstance(obj: any): obj is DownloadClientVuze {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === DownloadClientTorrentDownloadStation.__pulumiType;
+        return obj['__pulumiType'] === DownloadClientVuze.__pulumiType;
     }
 
+    /**
+     * Add paused flag.
+     */
+    public readonly addPaused!: pulumi.Output<boolean>;
     /**
      * Enable flag.
      */
@@ -68,9 +73,21 @@ export class DownloadClientTorrentDownloadStation extends pulumi.CustomResource 
      */
     public readonly host!: pulumi.Output<string>;
     /**
+     * Movie category.
+     */
+    public readonly movieCategory!: pulumi.Output<string>;
+    /**
+     * Movie directory.
+     */
+    public readonly movieDirectory!: pulumi.Output<string>;
+    /**
      * Download Client name.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Older Movie priority. `0` Last, `1` First.
+     */
+    public readonly olderMoviePriority!: pulumi.Output<number>;
     /**
      * Password.
      */
@@ -84,6 +101,10 @@ export class DownloadClientTorrentDownloadStation extends pulumi.CustomResource 
      */
     public readonly priority!: pulumi.Output<number>;
     /**
+     * Recent Movie priority. `0` Last, `1` First.
+     */
+    public readonly recentMoviePriority!: pulumi.Output<number>;
+    /**
      * Remove completed downloads flag.
      */
     public readonly removeCompletedDownloads!: pulumi.Output<boolean>;
@@ -96,6 +117,10 @@ export class DownloadClientTorrentDownloadStation extends pulumi.CustomResource 
      */
     public readonly tags!: pulumi.Output<number[]>;
     /**
+     * Base URL.
+     */
+    public readonly urlBase!: pulumi.Output<string>;
+    /**
      * Use SSL flag.
      */
     public readonly useSsl!: pulumi.Output<boolean>;
@@ -105,57 +130,73 @@ export class DownloadClientTorrentDownloadStation extends pulumi.CustomResource 
     public readonly username!: pulumi.Output<string>;
 
     /**
-     * Create a DownloadClientTorrentDownloadStation resource with the given unique name, arguments, and options.
+     * Create a DownloadClientVuze resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DownloadClientTorrentDownloadStationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DownloadClientTorrentDownloadStationArgs | DownloadClientTorrentDownloadStationState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DownloadClientVuzeArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DownloadClientVuzeArgs | DownloadClientVuzeState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
-            const state = argsOrState as DownloadClientTorrentDownloadStationState | undefined;
+            const state = argsOrState as DownloadClientVuzeState | undefined;
+            resourceInputs["addPaused"] = state ? state.addPaused : undefined;
             resourceInputs["enable"] = state ? state.enable : undefined;
             resourceInputs["host"] = state ? state.host : undefined;
+            resourceInputs["movieCategory"] = state ? state.movieCategory : undefined;
+            resourceInputs["movieDirectory"] = state ? state.movieDirectory : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["olderMoviePriority"] = state ? state.olderMoviePriority : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["recentMoviePriority"] = state ? state.recentMoviePriority : undefined;
             resourceInputs["removeCompletedDownloads"] = state ? state.removeCompletedDownloads : undefined;
             resourceInputs["removeFailedDownloads"] = state ? state.removeFailedDownloads : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["urlBase"] = state ? state.urlBase : undefined;
             resourceInputs["useSsl"] = state ? state.useSsl : undefined;
             resourceInputs["username"] = state ? state.username : undefined;
         } else {
-            const args = argsOrState as DownloadClientTorrentDownloadStationArgs | undefined;
+            const args = argsOrState as DownloadClientVuzeArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
+            resourceInputs["addPaused"] = args ? args.addPaused : undefined;
             resourceInputs["enable"] = args ? args.enable : undefined;
             resourceInputs["host"] = args ? args.host : undefined;
+            resourceInputs["movieCategory"] = args ? args.movieCategory : undefined;
+            resourceInputs["movieDirectory"] = args ? args.movieDirectory : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["olderMoviePriority"] = args ? args.olderMoviePriority : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["recentMoviePriority"] = args ? args.recentMoviePriority : undefined;
             resourceInputs["removeCompletedDownloads"] = args ? args.removeCompletedDownloads : undefined;
             resourceInputs["removeFailedDownloads"] = args ? args.removeFailedDownloads : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["urlBase"] = args ? args.urlBase : undefined;
             resourceInputs["useSsl"] = args ? args.useSsl : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(DownloadClientTorrentDownloadStation.__pulumiType, name, resourceInputs, opts);
+        super(DownloadClientVuze.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering DownloadClientTorrentDownloadStation resources.
+ * Input properties used for looking up and filtering DownloadClientVuze resources.
  */
-export interface DownloadClientTorrentDownloadStationState {
+export interface DownloadClientVuzeState {
+    /**
+     * Add paused flag.
+     */
+    addPaused?: pulumi.Input<boolean>;
     /**
      * Enable flag.
      */
@@ -165,9 +206,21 @@ export interface DownloadClientTorrentDownloadStationState {
      */
     host?: pulumi.Input<string>;
     /**
+     * Movie category.
+     */
+    movieCategory?: pulumi.Input<string>;
+    /**
+     * Movie directory.
+     */
+    movieDirectory?: pulumi.Input<string>;
+    /**
      * Download Client name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Older Movie priority. `0` Last, `1` First.
+     */
+    olderMoviePriority?: pulumi.Input<number>;
     /**
      * Password.
      */
@@ -181,6 +234,10 @@ export interface DownloadClientTorrentDownloadStationState {
      */
     priority?: pulumi.Input<number>;
     /**
+     * Recent Movie priority. `0` Last, `1` First.
+     */
+    recentMoviePriority?: pulumi.Input<number>;
+    /**
      * Remove completed downloads flag.
      */
     removeCompletedDownloads?: pulumi.Input<boolean>;
@@ -192,6 +249,10 @@ export interface DownloadClientTorrentDownloadStationState {
      * List of associated tags.
      */
     tags?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Base URL.
+     */
+    urlBase?: pulumi.Input<string>;
     /**
      * Use SSL flag.
      */
@@ -203,9 +264,13 @@ export interface DownloadClientTorrentDownloadStationState {
 }
 
 /**
- * The set of arguments for constructing a DownloadClientTorrentDownloadStation resource.
+ * The set of arguments for constructing a DownloadClientVuze resource.
  */
-export interface DownloadClientTorrentDownloadStationArgs {
+export interface DownloadClientVuzeArgs {
+    /**
+     * Add paused flag.
+     */
+    addPaused?: pulumi.Input<boolean>;
     /**
      * Enable flag.
      */
@@ -215,9 +280,21 @@ export interface DownloadClientTorrentDownloadStationArgs {
      */
     host?: pulumi.Input<string>;
     /**
+     * Movie category.
+     */
+    movieCategory?: pulumi.Input<string>;
+    /**
+     * Movie directory.
+     */
+    movieDirectory?: pulumi.Input<string>;
+    /**
      * Download Client name.
      */
     name: pulumi.Input<string>;
+    /**
+     * Older Movie priority. `0` Last, `1` First.
+     */
+    olderMoviePriority?: pulumi.Input<number>;
     /**
      * Password.
      */
@@ -231,6 +308,10 @@ export interface DownloadClientTorrentDownloadStationArgs {
      */
     priority?: pulumi.Input<number>;
     /**
+     * Recent Movie priority. `0` Last, `1` First.
+     */
+    recentMoviePriority?: pulumi.Input<number>;
+    /**
      * Remove completed downloads flag.
      */
     removeCompletedDownloads?: pulumi.Input<boolean>;
@@ -242,6 +323,10 @@ export interface DownloadClientTorrentDownloadStationArgs {
      * List of associated tags.
      */
     tags?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Base URL.
+     */
+    urlBase?: pulumi.Input<string>;
     /**
      * Use SSL flag.
      */

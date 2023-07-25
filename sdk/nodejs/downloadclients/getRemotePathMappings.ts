@@ -15,13 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as whisparr from "@pulumi/whisparr";
  *
- * const example = whisparr.DownloadClient.getRemotePathMappings({});
+ * const example = whisparr.DownloadClients.getRemotePathMappings({});
  * ```
  */
 export function getRemotePathMappings(opts?: pulumi.InvokeOptions): Promise<GetRemotePathMappingsResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("whisparr:DownloadClient/getRemotePathMappings:getRemotePathMappings", {
+    return pulumi.runtime.invoke("whisparr:DownloadClients/getRemotePathMappings:getRemotePathMappings", {
     }, opts);
 }
 
@@ -36,5 +36,5 @@ export interface GetRemotePathMappingsResult {
     /**
      * Remote Path Mapping list.
      */
-    readonly remotePathMappings: outputs.DownloadClient.GetRemotePathMappingsRemotePathMapping[];
+    readonly remotePathMappings: outputs.DownloadClients.GetRemotePathMappingsRemotePathMapping[];
 }

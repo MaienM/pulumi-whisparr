@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as whisparr from "@maienm/pulumi-whisparr";
  *
- * const example = new whisparr.downloadclient.DownloadClientAria2("example", {
+ * const example = new whisparr.downloadclients.DownloadClientAria2("example", {
  *     enable: true,
  *     host: "aria2",
  *     name: "Example",
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * import using the API/UI ID
  *
  * ```sh
- *  $ pulumi import whisparr:DownloadClient/downloadClientAria2:DownloadClientAria2 example 1
+ *  $ pulumi import whisparr:DownloadClients/downloadClientAria2:DownloadClientAria2 example 1
  * ```
  */
 export class DownloadClientAria2 extends pulumi.CustomResource {
@@ -47,7 +47,7 @@ export class DownloadClientAria2 extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'whisparr:DownloadClient/downloadClientAria2:DownloadClientAria2';
+    public static readonly __pulumiType = 'whisparr:DownloadClients/downloadClientAria2:DownloadClientAria2';
 
     /**
      * Returns true if the given object is an instance of DownloadClientAria2.  This is designed to work even

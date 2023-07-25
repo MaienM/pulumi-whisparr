@@ -13,13 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as whisparr from "@pulumi/whisparr";
  *
- * const example = whisparr.DownloadClient.getDownloadClientConfig({});
+ * const example = whisparr.DownloadClients.getDownloadClientConfig({});
  * ```
  */
 export function getDownloadClientConfig(opts?: pulumi.InvokeOptions): Promise<GetDownloadClientConfigResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("whisparr:DownloadClient/getDownloadClientConfig:getDownloadClientConfig", {
+    return pulumi.runtime.invoke("whisparr:DownloadClients/getDownloadClientConfig:getDownloadClientConfig", {
     }, opts);
 }
 

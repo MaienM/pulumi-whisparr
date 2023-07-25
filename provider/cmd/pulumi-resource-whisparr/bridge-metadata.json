@@ -1,26 +1,26 @@
 {
     "renames": {
         "resources": {
-            "whisparr:DownloadClient/downloadClient:DownloadClient": "whisparr_download_client",
-            "whisparr:DownloadClient/downloadClientAria2:DownloadClientAria2": "whisparr_download_client_aria2",
-            "whisparr:DownloadClient/downloadClientConfig:DownloadClientConfig": "whisparr_download_client_config",
-            "whisparr:DownloadClient/downloadClientDeluge:DownloadClientDeluge": "whisparr_download_client_deluge",
-            "whisparr:DownloadClient/downloadClientFlood:DownloadClientFlood": "whisparr_download_client_flood",
-            "whisparr:DownloadClient/downloadClientHadouken:DownloadClientHadouken": "whisparr_download_client_hadouken",
-            "whisparr:DownloadClient/downloadClientNzbget:DownloadClientNzbget": "whisparr_download_client_nzbget",
-            "whisparr:DownloadClient/downloadClientNzbvortex:DownloadClientNzbvortex": "whisparr_download_client_nzbvortex",
-            "whisparr:DownloadClient/downloadClientPneumatic:DownloadClientPneumatic": "whisparr_download_client_pneumatic",
-            "whisparr:DownloadClient/downloadClientQbittorrent:DownloadClientQbittorrent": "whisparr_download_client_qbittorrent",
-            "whisparr:DownloadClient/downloadClientRtorrent:DownloadClientRtorrent": "whisparr_download_client_rtorrent",
-            "whisparr:DownloadClient/downloadClientSabnzbd:DownloadClientSabnzbd": "whisparr_download_client_sabnzbd",
-            "whisparr:DownloadClient/downloadClientTorrentBlackhole:DownloadClientTorrentBlackhole": "whisparr_download_client_torrent_blackhole",
-            "whisparr:DownloadClient/downloadClientTorrentDownloadStation:DownloadClientTorrentDownloadStation": "whisparr_download_client_torrent_download_station",
-            "whisparr:DownloadClient/downloadClientTransmission:DownloadClientTransmission": "whisparr_download_client_transmission",
-            "whisparr:DownloadClient/downloadClientUsenetBlackhole:DownloadClientUsenetBlackhole": "whisparr_download_client_usenet_blackhole",
-            "whisparr:DownloadClient/downloadClientUsenetDownloadStation:DownloadClientUsenetDownloadStation": "whisparr_download_client_usenet_download_station",
-            "whisparr:DownloadClient/downloadClientUtorrent:DownloadClientUtorrent": "whisparr_download_client_utorrent",
-            "whisparr:DownloadClient/downloadClientVuze:DownloadClientVuze": "whisparr_download_client_vuze",
-            "whisparr:DownloadClient/remotePathMapping:RemotePathMapping": "whisparr_remote_path_mapping",
+            "whisparr:DownloadClients/downloadClient:DownloadClient": "whisparr_download_client",
+            "whisparr:DownloadClients/downloadClientAria2:DownloadClientAria2": "whisparr_download_client_aria2",
+            "whisparr:DownloadClients/downloadClientConfig:DownloadClientConfig": "whisparr_download_client_config",
+            "whisparr:DownloadClients/downloadClientDeluge:DownloadClientDeluge": "whisparr_download_client_deluge",
+            "whisparr:DownloadClients/downloadClientFlood:DownloadClientFlood": "whisparr_download_client_flood",
+            "whisparr:DownloadClients/downloadClientHadouken:DownloadClientHadouken": "whisparr_download_client_hadouken",
+            "whisparr:DownloadClients/downloadClientNzbget:DownloadClientNzbget": "whisparr_download_client_nzbget",
+            "whisparr:DownloadClients/downloadClientNzbvortex:DownloadClientNzbvortex": "whisparr_download_client_nzbvortex",
+            "whisparr:DownloadClients/downloadClientPneumatic:DownloadClientPneumatic": "whisparr_download_client_pneumatic",
+            "whisparr:DownloadClients/downloadClientQbittorrent:DownloadClientQbittorrent": "whisparr_download_client_qbittorrent",
+            "whisparr:DownloadClients/downloadClientRtorrent:DownloadClientRtorrent": "whisparr_download_client_rtorrent",
+            "whisparr:DownloadClients/downloadClientSabnzbd:DownloadClientSabnzbd": "whisparr_download_client_sabnzbd",
+            "whisparr:DownloadClients/downloadClientTorrentBlackhole:DownloadClientTorrentBlackhole": "whisparr_download_client_torrent_blackhole",
+            "whisparr:DownloadClients/downloadClientTorrentDownloadStation:DownloadClientTorrentDownloadStation": "whisparr_download_client_torrent_download_station",
+            "whisparr:DownloadClients/downloadClientTransmission:DownloadClientTransmission": "whisparr_download_client_transmission",
+            "whisparr:DownloadClients/downloadClientUsenetBlackhole:DownloadClientUsenetBlackhole": "whisparr_download_client_usenet_blackhole",
+            "whisparr:DownloadClients/downloadClientUsenetDownloadStation:DownloadClientUsenetDownloadStation": "whisparr_download_client_usenet_download_station",
+            "whisparr:DownloadClients/downloadClientUtorrent:DownloadClientUtorrent": "whisparr_download_client_utorrent",
+            "whisparr:DownloadClients/downloadClientVuze:DownloadClientVuze": "whisparr_download_client_vuze",
+            "whisparr:DownloadClients/remotePathMapping:RemotePathMapping": "whisparr_remote_path_mapping",
             "whisparr:ImportLists/importList:ImportList": "whisparr_import_list",
             "whisparr:ImportLists/importListConfig:ImportListConfig": "whisparr_import_list_config",
             "whisparr:ImportLists/importListCouchPotato:ImportListCouchPotato": "whisparr_import_list_couch_potato",
@@ -95,11 +95,11 @@
             "whisparr:Tags/tag:Tag": "whisparr_tag"
         },
         "functions": {
-            "whisparr:DownloadClient/getDownloadClient:getDownloadClient": "whisparr_download_client",
-            "whisparr:DownloadClient/getDownloadClientConfig:getDownloadClientConfig": "whisparr_download_client_config",
-            "whisparr:DownloadClient/getDownloadClients:getDownloadClients": "whisparr_download_clients",
-            "whisparr:DownloadClient/getRemotePathMapping:getRemotePathMapping": "whisparr_remote_path_mapping",
-            "whisparr:DownloadClient/getRemotePathMappings:getRemotePathMappings": "whisparr_remote_path_mappings",
+            "whisparr:DownloadClients/getDownloadClient:getDownloadClient": "whisparr_download_client",
+            "whisparr:DownloadClients/getDownloadClientConfig:getDownloadClientConfig": "whisparr_download_client_config",
+            "whisparr:DownloadClients/getDownloadClients:getDownloadClients": "whisparr_download_clients",
+            "whisparr:DownloadClients/getRemotePathMapping:getRemotePathMapping": "whisparr_remote_path_mapping",
+            "whisparr:DownloadClients/getRemotePathMappings:getRemotePathMappings": "whisparr_remote_path_mappings",
             "whisparr:ImportLists/getImportList:getImportList": "whisparr_import_list",
             "whisparr:ImportLists/getImportListConfig:getImportListConfig": "whisparr_import_list_config",
             "whisparr:ImportLists/getImportListExclusion:getImportListExclusion": "whisparr_import_list_exclusion",
@@ -146,7 +146,7 @@
             "whisparr:Tags/getTags:getTags": "whisparr_tags"
         },
         "renamedProperties": {
-            "whisparr:DownloadClient/downloadClient:DownloadClient": {
+            "whisparr:DownloadClients/downloadClient:DownloadClient": {
                 "addPaused": "add_paused",
                 "addStopped": "add_stopped",
                 "additionalTags": "additional_tags",
@@ -184,20 +184,20 @@
                 "useSsl": "use_ssl",
                 "watchFolder": "watch_folder"
             },
-            "whisparr:DownloadClient/downloadClientAria2:DownloadClientAria2": {
+            "whisparr:DownloadClients/downloadClientAria2:DownloadClientAria2": {
                 "removeCompletedDownloads": "remove_completed_downloads",
                 "removeFailedDownloads": "remove_failed_downloads",
                 "rpcPath": "rpc_path",
                 "secretToken": "secret_token",
                 "useSsl": "use_ssl"
             },
-            "whisparr:DownloadClient/downloadClientConfig:DownloadClientConfig": {
+            "whisparr:DownloadClients/downloadClientConfig:DownloadClientConfig": {
                 "autoRedownloadFailed": "auto_redownload_failed",
                 "checkForFinishedDownloadInterval": "check_for_finished_download_interval",
                 "downloadClientWorkingFolders": "download_client_working_folders",
                 "enableCompletedDownloadHandling": "enable_completed_download_handling"
             },
-            "whisparr:DownloadClient/downloadClientDeluge:DownloadClientDeluge": {
+            "whisparr:DownloadClients/downloadClientDeluge:DownloadClientDeluge": {
                 "addPaused": "add_paused",
                 "movieCategory": "movie_category",
                 "movieImportedCategory": "movie_imported_category",
@@ -208,7 +208,7 @@
                 "urlBase": "url_base",
                 "useSsl": "use_ssl"
             },
-            "whisparr:DownloadClient/downloadClientFlood:DownloadClientFlood": {
+            "whisparr:DownloadClients/downloadClientFlood:DownloadClientFlood": {
                 "addPaused": "add_paused",
                 "additionalTags": "additional_tags",
                 "fieldTags": "field_tags",
@@ -218,13 +218,13 @@
                 "urlBase": "url_base",
                 "useSsl": "use_ssl"
             },
-            "whisparr:DownloadClient/downloadClientHadouken:DownloadClientHadouken": {
+            "whisparr:DownloadClients/downloadClientHadouken:DownloadClientHadouken": {
                 "removeCompletedDownloads": "remove_completed_downloads",
                 "removeFailedDownloads": "remove_failed_downloads",
                 "urlBase": "url_base",
                 "useSsl": "use_ssl"
             },
-            "whisparr:DownloadClient/downloadClientNzbget:DownloadClientNzbget": {
+            "whisparr:DownloadClients/downloadClientNzbget:DownloadClientNzbget": {
                 "addPaused": "add_paused",
                 "movieCategory": "movie_category",
                 "olderMoviePriority": "older_movie_priority",
@@ -234,7 +234,7 @@
                 "urlBase": "url_base",
                 "useSsl": "use_ssl"
             },
-            "whisparr:DownloadClient/downloadClientNzbvortex:DownloadClientNzbvortex": {
+            "whisparr:DownloadClients/downloadClientNzbvortex:DownloadClientNzbvortex": {
                 "apiKey": "api_key",
                 "olderMoviePriority": "older_movie_priority",
                 "recentMoviePriority": "recent_movie_priority",
@@ -242,13 +242,13 @@
                 "removeFailedDownloads": "remove_failed_downloads",
                 "urlBase": "url_base"
             },
-            "whisparr:DownloadClient/downloadClientPneumatic:DownloadClientPneumatic": {
+            "whisparr:DownloadClients/downloadClientPneumatic:DownloadClientPneumatic": {
                 "nzbFolder": "nzb_folder",
                 "removeCompletedDownloads": "remove_completed_downloads",
                 "removeFailedDownloads": "remove_failed_downloads",
                 "strmFolder": "strm_folder"
             },
-            "whisparr:DownloadClient/downloadClientQbittorrent:DownloadClientQbittorrent": {
+            "whisparr:DownloadClients/downloadClientQbittorrent:DownloadClientQbittorrent": {
                 "firstAndLast": "first_and_last",
                 "initialState": "initial_state",
                 "movieCategory": "movie_category",
@@ -261,7 +261,7 @@
                 "urlBase": "url_base",
                 "useSsl": "use_ssl"
             },
-            "whisparr:DownloadClient/downloadClientRtorrent:DownloadClientRtorrent": {
+            "whisparr:DownloadClients/downloadClientRtorrent:DownloadClientRtorrent": {
                 "addStopped": "add_stopped",
                 "movieCategory": "movie_category",
                 "movieDirectory": "movie_directory",
@@ -273,7 +273,7 @@
                 "urlBase": "url_base",
                 "useSsl": "use_ssl"
             },
-            "whisparr:DownloadClient/downloadClientSabnzbd:DownloadClientSabnzbd": {
+            "whisparr:DownloadClients/downloadClientSabnzbd:DownloadClientSabnzbd": {
                 "apiKey": "api_key",
                 "movieCategory": "movie_category",
                 "olderMoviePriority": "older_movie_priority",
@@ -283,7 +283,7 @@
                 "urlBase": "url_base",
                 "useSsl": "use_ssl"
             },
-            "whisparr:DownloadClient/downloadClientTorrentBlackhole:DownloadClientTorrentBlackhole": {
+            "whisparr:DownloadClients/downloadClientTorrentBlackhole:DownloadClientTorrentBlackhole": {
                 "magnetFileExtension": "magnet_file_extension",
                 "readOnly": "read_only",
                 "removeCompletedDownloads": "remove_completed_downloads",
@@ -292,12 +292,12 @@
                 "torrentFolder": "torrent_folder",
                 "watchFolder": "watch_folder"
             },
-            "whisparr:DownloadClient/downloadClientTorrentDownloadStation:DownloadClientTorrentDownloadStation": {
+            "whisparr:DownloadClients/downloadClientTorrentDownloadStation:DownloadClientTorrentDownloadStation": {
                 "removeCompletedDownloads": "remove_completed_downloads",
                 "removeFailedDownloads": "remove_failed_downloads",
                 "useSsl": "use_ssl"
             },
-            "whisparr:DownloadClient/downloadClientTransmission:DownloadClientTransmission": {
+            "whisparr:DownloadClients/downloadClientTransmission:DownloadClientTransmission": {
                 "addPaused": "add_paused",
                 "movieCategory": "movie_category",
                 "movieDirectory": "movie_directory",
@@ -308,18 +308,18 @@
                 "urlBase": "url_base",
                 "useSsl": "use_ssl"
             },
-            "whisparr:DownloadClient/downloadClientUsenetBlackhole:DownloadClientUsenetBlackhole": {
+            "whisparr:DownloadClients/downloadClientUsenetBlackhole:DownloadClientUsenetBlackhole": {
                 "nzbFolder": "nzb_folder",
                 "removeCompletedDownloads": "remove_completed_downloads",
                 "removeFailedDownloads": "remove_failed_downloads",
                 "watchFolder": "watch_folder"
             },
-            "whisparr:DownloadClient/downloadClientUsenetDownloadStation:DownloadClientUsenetDownloadStation": {
+            "whisparr:DownloadClients/downloadClientUsenetDownloadStation:DownloadClientUsenetDownloadStation": {
                 "removeCompletedDownloads": "remove_completed_downloads",
                 "removeFailedDownloads": "remove_failed_downloads",
                 "useSsl": "use_ssl"
             },
-            "whisparr:DownloadClient/downloadClientUtorrent:DownloadClientUtorrent": {
+            "whisparr:DownloadClients/downloadClientUtorrent:DownloadClientUtorrent": {
                 "intialState": "intial_state",
                 "movieCategory": "movie_category",
                 "movieImportedCategory": "movie_imported_category",
@@ -330,7 +330,7 @@
                 "urlBase": "url_base",
                 "useSsl": "use_ssl"
             },
-            "whisparr:DownloadClient/downloadClientVuze:DownloadClientVuze": {
+            "whisparr:DownloadClients/downloadClientVuze:DownloadClientVuze": {
                 "addPaused": "add_paused",
                 "movieCategory": "movie_category",
                 "movieDirectory": "movie_directory",
@@ -341,7 +341,7 @@
                 "urlBase": "url_base",
                 "useSsl": "use_ssl"
             },
-            "whisparr:DownloadClient/getDownloadClient:getDownloadClient": {
+            "whisparr:DownloadClients/getDownloadClient:getDownloadClient": {
                 "addPaused": "add_paused",
                 "addStopped": "add_stopped",
                 "additionalTags": "additional_tags",
@@ -379,16 +379,16 @@
                 "useSsl": "use_ssl",
                 "watchFolder": "watch_folder"
             },
-            "whisparr:DownloadClient/getDownloadClientConfig:getDownloadClientConfig": {
+            "whisparr:DownloadClients/getDownloadClientConfig:getDownloadClientConfig": {
                 "autoRedownloadFailed": "auto_redownload_failed",
                 "checkForFinishedDownloadInterval": "check_for_finished_download_interval",
                 "downloadClientWorkingFolders": "download_client_working_folders",
                 "enableCompletedDownloadHandling": "enable_completed_download_handling"
             },
-            "whisparr:DownloadClient/getDownloadClients:getDownloadClients": {
+            "whisparr:DownloadClients/getDownloadClients:getDownloadClients": {
                 "downloadClients": "download_clients"
             },
-            "whisparr:DownloadClient/getDownloadClientsDownloadClient:getDownloadClientsDownloadClient": {
+            "whisparr:DownloadClients/getDownloadClientsDownloadClient:getDownloadClientsDownloadClient": {
                 "addPaused": "add_paused",
                 "addStopped": "add_stopped",
                 "additionalTags": "additional_tags",
@@ -426,18 +426,18 @@
                 "useSsl": "use_ssl",
                 "watchFolder": "watch_folder"
             },
-            "whisparr:DownloadClient/getRemotePathMapping:getRemotePathMapping": {
+            "whisparr:DownloadClients/getRemotePathMapping:getRemotePathMapping": {
                 "localPath": "local_path",
                 "remotePath": "remote_path"
             },
-            "whisparr:DownloadClient/getRemotePathMappings:getRemotePathMappings": {
+            "whisparr:DownloadClients/getRemotePathMappings:getRemotePathMappings": {
                 "remotePathMappings": "remote_path_mappings"
             },
-            "whisparr:DownloadClient/getRemotePathMappingsRemotePathMapping:getRemotePathMappingsRemotePathMapping": {
+            "whisparr:DownloadClients/getRemotePathMappingsRemotePathMapping:getRemotePathMappingsRemotePathMapping": {
                 "localPath": "local_path",
                 "remotePath": "remote_path"
             },
-            "whisparr:DownloadClient/remotePathMapping:RemotePathMapping": {
+            "whisparr:DownloadClients/remotePathMapping:RemotePathMapping": {
                 "localPath": "local_path",
                 "remotePath": "remote_path"
             },

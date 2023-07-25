@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as whisparr from "@pulumi/whisparr";
  *
- * const example = whisparr.DownloadClient.getDownloadClient({
+ * const example = whisparr.DownloadClients.getDownloadClient({
  *     name: "Example",
  * });
  * ```
@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
 export function getDownloadClient(args: GetDownloadClientArgs, opts?: pulumi.InvokeOptions): Promise<GetDownloadClientResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("whisparr:DownloadClient/getDownloadClient:getDownloadClient", {
+    return pulumi.runtime.invoke("whisparr:DownloadClients/getDownloadClient:getDownloadClient", {
         "name": args.name,
     }, opts);
 }
@@ -246,7 +246,7 @@ export interface GetDownloadClientResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as whisparr from "@pulumi/whisparr";
  *
- * const example = whisparr.DownloadClient.getDownloadClient({
+ * const example = whisparr.DownloadClients.getDownloadClient({
  *     name: "Example",
  * });
  * ```

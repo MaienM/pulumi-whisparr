@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * <!-- subcategory:Download Clients -->Download Client Deluge resource.
- * For more information refer to [Download Client](https://wiki.servarr.com/whisparr/settings#download-clients) and [Deluge](https://wiki.servarr.com/whisparr/supported#deluge).
+ * <!-- subcategory:Download Clients -->Download Client qBittorrent resource.
+ * For more information refer to [Download Client](https://wiki.servarr.com/whisparr/settings#download-clients) and [qBittorrent](https://wiki.servarr.com/whisparr/supported#qbittorrent).
  *
  * ## Example Usage
  *
@@ -14,13 +14,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as whisparr from "@maienm/pulumi-whisparr";
  *
- * const example = new whisparr.downloadclient.DownloadClientDeluge("example", {
+ * const example = new whisparr.downloadclients.DownloadClientQbittorrent("example", {
  *     enable: true,
- *     host: "deluge",
+ *     firstAndLast: true,
+ *     host: "qbittorrent",
+ *     movieCategory: "tv-whisparr",
  *     name: "Example",
  *     port: 9091,
  *     priority: 1,
- *     urlBase: "/deluge/",
+ *     urlBase: "/qbittorrent/",
  * });
  * ```
  *
@@ -29,12 +31,12 @@ import * as utilities from "../utilities";
  * import using the API/UI ID
  *
  * ```sh
- *  $ pulumi import whisparr:DownloadClient/downloadClientDeluge:DownloadClientDeluge example 1
+ *  $ pulumi import whisparr:DownloadClients/downloadClientQbittorrent:DownloadClientQbittorrent example 1
  * ```
  */
-export class DownloadClientDeluge extends pulumi.CustomResource {
+export class DownloadClientQbittorrent extends pulumi.CustomResource {
     /**
-     * Get an existing DownloadClientDeluge resource's state with the given name, ID, and optional extra
+     * Get an existing DownloadClientQbittorrent resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -42,36 +44,40 @@ export class DownloadClientDeluge extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientDelugeState, opts?: pulumi.CustomResourceOptions): DownloadClientDeluge {
-        return new DownloadClientDeluge(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientQbittorrentState, opts?: pulumi.CustomResourceOptions): DownloadClientQbittorrent {
+        return new DownloadClientQbittorrent(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'whisparr:DownloadClient/downloadClientDeluge:DownloadClientDeluge';
+    public static readonly __pulumiType = 'whisparr:DownloadClients/downloadClientQbittorrent:DownloadClientQbittorrent';
 
     /**
-     * Returns true if the given object is an instance of DownloadClientDeluge.  This is designed to work even
+     * Returns true if the given object is an instance of DownloadClientQbittorrent.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is DownloadClientDeluge {
+    public static isInstance(obj: any): obj is DownloadClientQbittorrent {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === DownloadClientDeluge.__pulumiType;
+        return obj['__pulumiType'] === DownloadClientQbittorrent.__pulumiType;
     }
 
-    /**
-     * Add paused flag.
-     */
-    public readonly addPaused!: pulumi.Output<boolean>;
     /**
      * Enable flag.
      */
     public readonly enable!: pulumi.Output<boolean>;
     /**
+     * First and last flag.
+     */
+    public readonly firstAndLast!: pulumi.Output<boolean>;
+    /**
      * host.
      */
     public readonly host!: pulumi.Output<string>;
+    /**
+     * Initial state, with Stop support. `0` Start, `1` ForceStart, `2` Pause.
+     */
+    public readonly initialState!: pulumi.Output<number>;
     /**
      * Movie category.
      */
@@ -113,6 +119,10 @@ export class DownloadClientDeluge extends pulumi.CustomResource {
      */
     public readonly removeFailedDownloads!: pulumi.Output<boolean>;
     /**
+     * Sequential order flag.
+     */
+    public readonly sequentialOrder!: pulumi.Output<boolean>;
+    /**
      * List of associated tags.
      */
     public readonly tags!: pulumi.Output<number[]>;
@@ -124,23 +134,28 @@ export class DownloadClientDeluge extends pulumi.CustomResource {
      * Use SSL flag.
      */
     public readonly useSsl!: pulumi.Output<boolean>;
+    /**
+     * Username.
+     */
+    public readonly username!: pulumi.Output<string>;
 
     /**
-     * Create a DownloadClientDeluge resource with the given unique name, arguments, and options.
+     * Create a DownloadClientQbittorrent resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DownloadClientDelugeArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DownloadClientDelugeArgs | DownloadClientDelugeState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DownloadClientQbittorrentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DownloadClientQbittorrentArgs | DownloadClientQbittorrentState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
-            const state = argsOrState as DownloadClientDelugeState | undefined;
-            resourceInputs["addPaused"] = state ? state.addPaused : undefined;
+            const state = argsOrState as DownloadClientQbittorrentState | undefined;
             resourceInputs["enable"] = state ? state.enable : undefined;
+            resourceInputs["firstAndLast"] = state ? state.firstAndLast : undefined;
             resourceInputs["host"] = state ? state.host : undefined;
+            resourceInputs["initialState"] = state ? state.initialState : undefined;
             resourceInputs["movieCategory"] = state ? state.movieCategory : undefined;
             resourceInputs["movieImportedCategory"] = state ? state.movieImportedCategory : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -151,17 +166,20 @@ export class DownloadClientDeluge extends pulumi.CustomResource {
             resourceInputs["recentMoviePriority"] = state ? state.recentMoviePriority : undefined;
             resourceInputs["removeCompletedDownloads"] = state ? state.removeCompletedDownloads : undefined;
             resourceInputs["removeFailedDownloads"] = state ? state.removeFailedDownloads : undefined;
+            resourceInputs["sequentialOrder"] = state ? state.sequentialOrder : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["urlBase"] = state ? state.urlBase : undefined;
             resourceInputs["useSsl"] = state ? state.useSsl : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
-            const args = argsOrState as DownloadClientDelugeArgs | undefined;
+            const args = argsOrState as DownloadClientQbittorrentArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["addPaused"] = args ? args.addPaused : undefined;
             resourceInputs["enable"] = args ? args.enable : undefined;
+            resourceInputs["firstAndLast"] = args ? args.firstAndLast : undefined;
             resourceInputs["host"] = args ? args.host : undefined;
+            resourceInputs["initialState"] = args ? args.initialState : undefined;
             resourceInputs["movieCategory"] = args ? args.movieCategory : undefined;
             resourceInputs["movieImportedCategory"] = args ? args.movieImportedCategory : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -172,33 +190,39 @@ export class DownloadClientDeluge extends pulumi.CustomResource {
             resourceInputs["recentMoviePriority"] = args ? args.recentMoviePriority : undefined;
             resourceInputs["removeCompletedDownloads"] = args ? args.removeCompletedDownloads : undefined;
             resourceInputs["removeFailedDownloads"] = args ? args.removeFailedDownloads : undefined;
+            resourceInputs["sequentialOrder"] = args ? args.sequentialOrder : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["urlBase"] = args ? args.urlBase : undefined;
             resourceInputs["useSsl"] = args ? args.useSsl : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(DownloadClientDeluge.__pulumiType, name, resourceInputs, opts);
+        super(DownloadClientQbittorrent.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering DownloadClientDeluge resources.
+ * Input properties used for looking up and filtering DownloadClientQbittorrent resources.
  */
-export interface DownloadClientDelugeState {
-    /**
-     * Add paused flag.
-     */
-    addPaused?: pulumi.Input<boolean>;
+export interface DownloadClientQbittorrentState {
     /**
      * Enable flag.
      */
     enable?: pulumi.Input<boolean>;
     /**
+     * First and last flag.
+     */
+    firstAndLast?: pulumi.Input<boolean>;
+    /**
      * host.
      */
     host?: pulumi.Input<string>;
+    /**
+     * Initial state, with Stop support. `0` Start, `1` ForceStart, `2` Pause.
+     */
+    initialState?: pulumi.Input<number>;
     /**
      * Movie category.
      */
@@ -240,6 +264,10 @@ export interface DownloadClientDelugeState {
      */
     removeFailedDownloads?: pulumi.Input<boolean>;
     /**
+     * Sequential order flag.
+     */
+    sequentialOrder?: pulumi.Input<boolean>;
+    /**
      * List of associated tags.
      */
     tags?: pulumi.Input<pulumi.Input<number>[]>;
@@ -251,24 +279,32 @@ export interface DownloadClientDelugeState {
      * Use SSL flag.
      */
     useSsl?: pulumi.Input<boolean>;
+    /**
+     * Username.
+     */
+    username?: pulumi.Input<string>;
 }
 
 /**
- * The set of arguments for constructing a DownloadClientDeluge resource.
+ * The set of arguments for constructing a DownloadClientQbittorrent resource.
  */
-export interface DownloadClientDelugeArgs {
-    /**
-     * Add paused flag.
-     */
-    addPaused?: pulumi.Input<boolean>;
+export interface DownloadClientQbittorrentArgs {
     /**
      * Enable flag.
      */
     enable?: pulumi.Input<boolean>;
     /**
+     * First and last flag.
+     */
+    firstAndLast?: pulumi.Input<boolean>;
+    /**
      * host.
      */
     host?: pulumi.Input<string>;
+    /**
+     * Initial state, with Stop support. `0` Start, `1` ForceStart, `2` Pause.
+     */
+    initialState?: pulumi.Input<number>;
     /**
      * Movie category.
      */
@@ -310,6 +346,10 @@ export interface DownloadClientDelugeArgs {
      */
     removeFailedDownloads?: pulumi.Input<boolean>;
     /**
+     * Sequential order flag.
+     */
+    sequentialOrder?: pulumi.Input<boolean>;
+    /**
      * List of associated tags.
      */
     tags?: pulumi.Input<pulumi.Input<number>[]>;
@@ -321,4 +361,8 @@ export interface DownloadClientDelugeArgs {
      * Use SSL flag.
      */
     useSsl?: pulumi.Input<boolean>;
+    /**
+     * Username.
+     */
+    username?: pulumi.Input<string>;
 }

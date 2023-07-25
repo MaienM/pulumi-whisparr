@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * <!-- subcategory:Download Clients -->Download Client Vuze resource.
- * For more information refer to [Download Client](https://wiki.servarr.com/whisparr/settings#download-clients) and [Vuze](https://wiki.servarr.com/whisparr/supported#vuze).
+ * <!-- subcategory:Download Clients -->Download Client Deluge resource.
+ * For more information refer to [Download Client](https://wiki.servarr.com/whisparr/settings#download-clients) and [Deluge](https://wiki.servarr.com/whisparr/supported#deluge).
  *
  * ## Example Usage
  *
@@ -14,13 +14,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as whisparr from "@maienm/pulumi-whisparr";
  *
- * const example = new whisparr.downloadclient.DownloadClientVuze("example", {
+ * const example = new whisparr.downloadclients.DownloadClientDeluge("example", {
  *     enable: true,
- *     host: "vuze",
+ *     host: "deluge",
  *     name: "Example",
  *     port: 9091,
  *     priority: 1,
- *     urlBase: "/vuze/",
+ *     urlBase: "/deluge/",
  * });
  * ```
  *
@@ -29,12 +29,12 @@ import * as utilities from "../utilities";
  * import using the API/UI ID
  *
  * ```sh
- *  $ pulumi import whisparr:DownloadClient/downloadClientVuze:DownloadClientVuze example 1
+ *  $ pulumi import whisparr:DownloadClients/downloadClientDeluge:DownloadClientDeluge example 1
  * ```
  */
-export class DownloadClientVuze extends pulumi.CustomResource {
+export class DownloadClientDeluge extends pulumi.CustomResource {
     /**
-     * Get an existing DownloadClientVuze resource's state with the given name, ID, and optional extra
+     * Get an existing DownloadClientDeluge resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -42,22 +42,22 @@ export class DownloadClientVuze extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientVuzeState, opts?: pulumi.CustomResourceOptions): DownloadClientVuze {
-        return new DownloadClientVuze(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientDelugeState, opts?: pulumi.CustomResourceOptions): DownloadClientDeluge {
+        return new DownloadClientDeluge(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'whisparr:DownloadClient/downloadClientVuze:DownloadClientVuze';
+    public static readonly __pulumiType = 'whisparr:DownloadClients/downloadClientDeluge:DownloadClientDeluge';
 
     /**
-     * Returns true if the given object is an instance of DownloadClientVuze.  This is designed to work even
+     * Returns true if the given object is an instance of DownloadClientDeluge.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is DownloadClientVuze {
+    public static isInstance(obj: any): obj is DownloadClientDeluge {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === DownloadClientVuze.__pulumiType;
+        return obj['__pulumiType'] === DownloadClientDeluge.__pulumiType;
     }
 
     /**
@@ -77,9 +77,9 @@ export class DownloadClientVuze extends pulumi.CustomResource {
      */
     public readonly movieCategory!: pulumi.Output<string>;
     /**
-     * Movie directory.
+     * Movie imported category.
      */
-    public readonly movieDirectory!: pulumi.Output<string>;
+    public readonly movieImportedCategory!: pulumi.Output<string>;
     /**
      * Download Client name.
      */
@@ -124,29 +124,25 @@ export class DownloadClientVuze extends pulumi.CustomResource {
      * Use SSL flag.
      */
     public readonly useSsl!: pulumi.Output<boolean>;
-    /**
-     * Username.
-     */
-    public readonly username!: pulumi.Output<string>;
 
     /**
-     * Create a DownloadClientVuze resource with the given unique name, arguments, and options.
+     * Create a DownloadClientDeluge resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DownloadClientVuzeArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DownloadClientVuzeArgs | DownloadClientVuzeState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DownloadClientDelugeArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DownloadClientDelugeArgs | DownloadClientDelugeState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
-            const state = argsOrState as DownloadClientVuzeState | undefined;
+            const state = argsOrState as DownloadClientDelugeState | undefined;
             resourceInputs["addPaused"] = state ? state.addPaused : undefined;
             resourceInputs["enable"] = state ? state.enable : undefined;
             resourceInputs["host"] = state ? state.host : undefined;
             resourceInputs["movieCategory"] = state ? state.movieCategory : undefined;
-            resourceInputs["movieDirectory"] = state ? state.movieDirectory : undefined;
+            resourceInputs["movieImportedCategory"] = state ? state.movieImportedCategory : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["olderMoviePriority"] = state ? state.olderMoviePriority : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
@@ -158,9 +154,8 @@ export class DownloadClientVuze extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["urlBase"] = state ? state.urlBase : undefined;
             resourceInputs["useSsl"] = state ? state.useSsl : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
         } else {
-            const args = argsOrState as DownloadClientVuzeArgs | undefined;
+            const args = argsOrState as DownloadClientDelugeArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
@@ -168,7 +163,7 @@ export class DownloadClientVuze extends pulumi.CustomResource {
             resourceInputs["enable"] = args ? args.enable : undefined;
             resourceInputs["host"] = args ? args.host : undefined;
             resourceInputs["movieCategory"] = args ? args.movieCategory : undefined;
-            resourceInputs["movieDirectory"] = args ? args.movieDirectory : undefined;
+            resourceInputs["movieImportedCategory"] = args ? args.movieImportedCategory : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["olderMoviePriority"] = args ? args.olderMoviePriority : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
@@ -180,19 +175,18 @@ export class DownloadClientVuze extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["urlBase"] = args ? args.urlBase : undefined;
             resourceInputs["useSsl"] = args ? args.useSsl : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(DownloadClientVuze.__pulumiType, name, resourceInputs, opts);
+        super(DownloadClientDeluge.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering DownloadClientVuze resources.
+ * Input properties used for looking up and filtering DownloadClientDeluge resources.
  */
-export interface DownloadClientVuzeState {
+export interface DownloadClientDelugeState {
     /**
      * Add paused flag.
      */
@@ -210,9 +204,9 @@ export interface DownloadClientVuzeState {
      */
     movieCategory?: pulumi.Input<string>;
     /**
-     * Movie directory.
+     * Movie imported category.
      */
-    movieDirectory?: pulumi.Input<string>;
+    movieImportedCategory?: pulumi.Input<string>;
     /**
      * Download Client name.
      */
@@ -257,16 +251,12 @@ export interface DownloadClientVuzeState {
      * Use SSL flag.
      */
     useSsl?: pulumi.Input<boolean>;
-    /**
-     * Username.
-     */
-    username?: pulumi.Input<string>;
 }
 
 /**
- * The set of arguments for constructing a DownloadClientVuze resource.
+ * The set of arguments for constructing a DownloadClientDeluge resource.
  */
-export interface DownloadClientVuzeArgs {
+export interface DownloadClientDelugeArgs {
     /**
      * Add paused flag.
      */
@@ -284,9 +274,9 @@ export interface DownloadClientVuzeArgs {
      */
     movieCategory?: pulumi.Input<string>;
     /**
-     * Movie directory.
+     * Movie imported category.
      */
-    movieDirectory?: pulumi.Input<string>;
+    movieImportedCategory?: pulumi.Input<string>;
     /**
      * Download Client name.
      */
@@ -331,8 +321,4 @@ export interface DownloadClientVuzeArgs {
      * Use SSL flag.
      */
     useSsl?: pulumi.Input<boolean>;
-    /**
-     * Username.
-     */
-    username?: pulumi.Input<string>;
 }

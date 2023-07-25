@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as whisparr from "@maienm/pulumi-whisparr";
  *
- * const example = new whisparr.downloadclient.RemotePathMapping("example", {
+ * const example = new whisparr.downloadclients.RemotePathMapping("example", {
  *     host: "www.transmission.com",
  *     localPath: "/transmission-download/",
  *     remotePath: "/download/",
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import using the API/UI ID
  *
  * ```sh
- *  $ pulumi import whisparr:DownloadClient/remotePathMapping:RemotePathMapping example 10
+ *  $ pulumi import whisparr:DownloadClients/remotePathMapping:RemotePathMapping example 10
  * ```
  */
 export class RemotePathMapping extends pulumi.CustomResource {
@@ -44,7 +44,7 @@ export class RemotePathMapping extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'whisparr:DownloadClient/remotePathMapping:RemotePathMapping';
+    public static readonly __pulumiType = 'whisparr:DownloadClients/remotePathMapping:RemotePathMapping';
 
     /**
      * Returns true if the given object is an instance of RemotePathMapping.  This is designed to work even

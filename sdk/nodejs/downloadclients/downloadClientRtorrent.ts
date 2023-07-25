@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * <!-- subcategory:Download Clients -->Download Client Hadouken resource.
- * For more information refer to [Download Client](https://wiki.servarr.com/whisparr/settings#download-clients) and [Hadouken](https://wiki.servarr.com/whisparr/supported#hadouken).
+ * <!-- subcategory:Download Clients -->Download Client RTorrent resource.
+ * For more information refer to [Download Client](https://wiki.servarr.com/whisparr/settings#download-clients) and [RTorrent](https://wiki.servarr.com/whisparr/supported#rtorrent).
  *
  * ## Example Usage
  *
@@ -14,15 +14,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as whisparr from "@maienm/pulumi-whisparr";
  *
- * const example = new whisparr.downloadclient.DownloadClientHadouken("example", {
+ * const example = new whisparr.downloadclients.DownloadClientRtorrent("example", {
  *     enable: true,
- *     host: "hadouken",
+ *     host: "rtorrent",
  *     name: "Example",
- *     password: "password",
  *     port: 9091,
  *     priority: 1,
- *     urlBase: "/hadouken/",
- *     username: "username",
+ *     urlBase: "/rtorrent/",
  * });
  * ```
  *
@@ -31,12 +29,12 @@ import * as utilities from "../utilities";
  * import using the API/UI ID
  *
  * ```sh
- *  $ pulumi import whisparr:DownloadClient/downloadClientHadouken:DownloadClientHadouken example 1
+ *  $ pulumi import whisparr:DownloadClients/downloadClientRtorrent:DownloadClientRtorrent example 1
  * ```
  */
-export class DownloadClientHadouken extends pulumi.CustomResource {
+export class DownloadClientRtorrent extends pulumi.CustomResource {
     /**
-     * Get an existing DownloadClientHadouken resource's state with the given name, ID, and optional extra
+     * Get an existing DownloadClientRtorrent resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -44,28 +42,28 @@ export class DownloadClientHadouken extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientHadoukenState, opts?: pulumi.CustomResourceOptions): DownloadClientHadouken {
-        return new DownloadClientHadouken(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientRtorrentState, opts?: pulumi.CustomResourceOptions): DownloadClientRtorrent {
+        return new DownloadClientRtorrent(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'whisparr:DownloadClient/downloadClientHadouken:DownloadClientHadouken';
+    public static readonly __pulumiType = 'whisparr:DownloadClients/downloadClientRtorrent:DownloadClientRtorrent';
 
     /**
-     * Returns true if the given object is an instance of DownloadClientHadouken.  This is designed to work even
+     * Returns true if the given object is an instance of DownloadClientRtorrent.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is DownloadClientHadouken {
+    public static isInstance(obj: any): obj is DownloadClientRtorrent {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === DownloadClientHadouken.__pulumiType;
+        return obj['__pulumiType'] === DownloadClientRtorrent.__pulumiType;
     }
 
     /**
-     * Category.
+     * Add stopped flag.
      */
-    public readonly category!: pulumi.Output<string>;
+    public readonly addStopped!: pulumi.Output<boolean>;
     /**
      * Enable flag.
      */
@@ -75,9 +73,25 @@ export class DownloadClientHadouken extends pulumi.CustomResource {
      */
     public readonly host!: pulumi.Output<string>;
     /**
+     * Movie category.
+     */
+    public readonly movieCategory!: pulumi.Output<string>;
+    /**
+     * Movie directory.
+     */
+    public readonly movieDirectory!: pulumi.Output<string>;
+    /**
+     * Movie imported category.
+     */
+    public readonly movieImportedCategory!: pulumi.Output<string>;
+    /**
      * Download Client name.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Older Movie priority. `0` VeryLow, `1` Low, `2` Normal, `3` High.
+     */
+    public readonly olderMoviePriority!: pulumi.Output<number>;
     /**
      * Password.
      */
@@ -90,6 +104,10 @@ export class DownloadClientHadouken extends pulumi.CustomResource {
      * Priority.
      */
     public readonly priority!: pulumi.Output<number>;
+    /**
+     * Recent Movie priority. `0` VeryLow, `1` Low, `2` Normal, `3` High.
+     */
+    public readonly recentMoviePriority!: pulumi.Output<number>;
     /**
      * Remove completed downloads flag.
      */
@@ -116,25 +134,30 @@ export class DownloadClientHadouken extends pulumi.CustomResource {
     public readonly username!: pulumi.Output<string>;
 
     /**
-     * Create a DownloadClientHadouken resource with the given unique name, arguments, and options.
+     * Create a DownloadClientRtorrent resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DownloadClientHadoukenArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DownloadClientHadoukenArgs | DownloadClientHadoukenState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DownloadClientRtorrentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DownloadClientRtorrentArgs | DownloadClientRtorrentState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
-            const state = argsOrState as DownloadClientHadoukenState | undefined;
-            resourceInputs["category"] = state ? state.category : undefined;
+            const state = argsOrState as DownloadClientRtorrentState | undefined;
+            resourceInputs["addStopped"] = state ? state.addStopped : undefined;
             resourceInputs["enable"] = state ? state.enable : undefined;
             resourceInputs["host"] = state ? state.host : undefined;
+            resourceInputs["movieCategory"] = state ? state.movieCategory : undefined;
+            resourceInputs["movieDirectory"] = state ? state.movieDirectory : undefined;
+            resourceInputs["movieImportedCategory"] = state ? state.movieImportedCategory : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["olderMoviePriority"] = state ? state.olderMoviePriority : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["recentMoviePriority"] = state ? state.recentMoviePriority : undefined;
             resourceInputs["removeCompletedDownloads"] = state ? state.removeCompletedDownloads : undefined;
             resourceInputs["removeFailedDownloads"] = state ? state.removeFailedDownloads : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -142,23 +165,22 @@ export class DownloadClientHadouken extends pulumi.CustomResource {
             resourceInputs["useSsl"] = state ? state.useSsl : undefined;
             resourceInputs["username"] = state ? state.username : undefined;
         } else {
-            const args = argsOrState as DownloadClientHadoukenArgs | undefined;
+            const args = argsOrState as DownloadClientRtorrentArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.password === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'password'");
-            }
-            if ((!args || args.username === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'username'");
-            }
-            resourceInputs["category"] = args ? args.category : undefined;
+            resourceInputs["addStopped"] = args ? args.addStopped : undefined;
             resourceInputs["enable"] = args ? args.enable : undefined;
             resourceInputs["host"] = args ? args.host : undefined;
+            resourceInputs["movieCategory"] = args ? args.movieCategory : undefined;
+            resourceInputs["movieDirectory"] = args ? args.movieDirectory : undefined;
+            resourceInputs["movieImportedCategory"] = args ? args.movieImportedCategory : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["olderMoviePriority"] = args ? args.olderMoviePriority : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["recentMoviePriority"] = args ? args.recentMoviePriority : undefined;
             resourceInputs["removeCompletedDownloads"] = args ? args.removeCompletedDownloads : undefined;
             resourceInputs["removeFailedDownloads"] = args ? args.removeFailedDownloads : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -169,18 +191,18 @@ export class DownloadClientHadouken extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(DownloadClientHadouken.__pulumiType, name, resourceInputs, opts);
+        super(DownloadClientRtorrent.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering DownloadClientHadouken resources.
+ * Input properties used for looking up and filtering DownloadClientRtorrent resources.
  */
-export interface DownloadClientHadoukenState {
+export interface DownloadClientRtorrentState {
     /**
-     * Category.
+     * Add stopped flag.
      */
-    category?: pulumi.Input<string>;
+    addStopped?: pulumi.Input<boolean>;
     /**
      * Enable flag.
      */
@@ -190,9 +212,25 @@ export interface DownloadClientHadoukenState {
      */
     host?: pulumi.Input<string>;
     /**
+     * Movie category.
+     */
+    movieCategory?: pulumi.Input<string>;
+    /**
+     * Movie directory.
+     */
+    movieDirectory?: pulumi.Input<string>;
+    /**
+     * Movie imported category.
+     */
+    movieImportedCategory?: pulumi.Input<string>;
+    /**
      * Download Client name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Older Movie priority. `0` VeryLow, `1` Low, `2` Normal, `3` High.
+     */
+    olderMoviePriority?: pulumi.Input<number>;
     /**
      * Password.
      */
@@ -205,6 +243,10 @@ export interface DownloadClientHadoukenState {
      * Priority.
      */
     priority?: pulumi.Input<number>;
+    /**
+     * Recent Movie priority. `0` VeryLow, `1` Low, `2` Normal, `3` High.
+     */
+    recentMoviePriority?: pulumi.Input<number>;
     /**
      * Remove completed downloads flag.
      */
@@ -232,13 +274,13 @@ export interface DownloadClientHadoukenState {
 }
 
 /**
- * The set of arguments for constructing a DownloadClientHadouken resource.
+ * The set of arguments for constructing a DownloadClientRtorrent resource.
  */
-export interface DownloadClientHadoukenArgs {
+export interface DownloadClientRtorrentArgs {
     /**
-     * Category.
+     * Add stopped flag.
      */
-    category?: pulumi.Input<string>;
+    addStopped?: pulumi.Input<boolean>;
     /**
      * Enable flag.
      */
@@ -248,13 +290,29 @@ export interface DownloadClientHadoukenArgs {
      */
     host?: pulumi.Input<string>;
     /**
+     * Movie category.
+     */
+    movieCategory?: pulumi.Input<string>;
+    /**
+     * Movie directory.
+     */
+    movieDirectory?: pulumi.Input<string>;
+    /**
+     * Movie imported category.
+     */
+    movieImportedCategory?: pulumi.Input<string>;
+    /**
      * Download Client name.
      */
     name: pulumi.Input<string>;
     /**
+     * Older Movie priority. `0` VeryLow, `1` Low, `2` Normal, `3` High.
+     */
+    olderMoviePriority?: pulumi.Input<number>;
+    /**
      * Password.
      */
-    password: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * Port.
      */
@@ -263,6 +321,10 @@ export interface DownloadClientHadoukenArgs {
      * Priority.
      */
     priority?: pulumi.Input<number>;
+    /**
+     * Recent Movie priority. `0` VeryLow, `1` Low, `2` Normal, `3` High.
+     */
+    recentMoviePriority?: pulumi.Input<number>;
     /**
      * Remove completed downloads flag.
      */
@@ -286,5 +348,5 @@ export interface DownloadClientHadoukenArgs {
     /**
      * Username.
      */
-    username: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }
